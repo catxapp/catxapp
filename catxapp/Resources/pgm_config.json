@@ -1,0 +1,48 @@
+{
+  "weights": {
+    "pt": 0.8,
+    "pd": 0.15,
+    "rh": 0.05
+  },
+  "anchorDate": "2026-06-17",
+  "anchorIndex": 2011.35,
+  "priceType": "bid",
+  "indexFormula": "index = (wPt \u00d7 Pt) + (wPd \u00d7 Pd) + (wRh \u00d7 Rh)",
+  "livePriceFormula": "livePrice = anchorPrice \u00d7 (currentIndex \u00f7 anchorIndex)",
+  "historical": {
+    "2026-05-19": {
+      "pt": 1968.0,
+      "pd": 1272.0,
+      "rh": 7000.0
+    },
+    "2026-06-17": {
+      "pt": 1789.0,
+      "pd": 1326.0,
+      "rh": 7625.0
+    }
+  },
+  "priceLists": [
+    {
+      "date": "2026-05-19",
+      "pdfFile": "ACC PRICE LIST 5x19x2026.pdf",
+      "kitcoSpot": {
+        "pt": 1968.0,
+        "pd": 1272.0,
+        "rh": 7000.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on May 19, 2026 (from Kitco precious metals table; ask range was Pt ~$1,970\u20131,978, Pd ~$1,295\u20131,312, Rh ~$8,000)."
+    },
+    {
+      "date": "2026-06-17",
+      "pdfFile": "ACC PRICE LIST 6x17x2026.pdf",
+      "kitcoSpot": {
+        "pt": 1789.0,
+        "pd": 1326.0,
+        "rh": 7625.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on June 17, 2026 (kitco.com precious metals table)."
+    }
+  ],
+  "calibrationRMSE": 7.23,
+  "matchedPairs": 1508
+}

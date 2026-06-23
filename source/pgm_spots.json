@@ -1,0 +1,28 @@
+{
+  "source": "Kitco spot prices aligned to ACC price list PDF dates",
+  "priceType": "bid",
+  "priceLists": [
+    {
+      "date": "2026-05-19",
+      "pdfFile": "ACC PRICE LIST 5x19x2026.pdf",
+      "supplier": "American Iron and Metal, LLC",
+      "kitcoSpot": {
+        "pt": 1968.0,
+        "pd": 1272.0,
+        "rh": 7000.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on May 19, 2026 (from Kitco precious metals table; ask range was Pt ~$1,970–1,978, Pd ~$1,295–1,312, Rh ~$8,000)."
+    },
+    {
+      "date": "2026-06-17",
+      "pdfFile": "ACC PRICE LIST 6x17x2026.pdf",
+      "supplier": "American Iron and Metal, LLC",
+      "kitcoSpot": {
+        "pt": 1789.0,
+        "pd": 1326.0,
+        "rh": 7625.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on June 17, 2026 (kitco.com precious metals table)."
+    }
+  ]
+}

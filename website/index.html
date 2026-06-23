@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="catXapp — fast catalytic converter price lookup for iOS. Live PGM-adjusted pricing, cart tools, and margin control. Try free for 14 days, then $7.99/month.">
+  <title>catXapp — Catalytic Converter Pricing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="site-header hero">
+      <img src="assets/logo.png" alt="catXapp" class="logo" width="96" height="96">
+      <h1>catXapp</h1>
+      <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
+      <p class="platform-note">Available on iPhone only (iOS)</p>
+      <p class="pricing-note">Try free for 14 days, then just $7.99/month</p>
+    </header>
+
+    <section class="features" aria-label="Features">
+      <article class="feature">
+        <h3>Instant code lookup</h3>
+        <p>Search thousands of converter codes with smart suggestions — partial matches work when stamps are rusty.</p>
+      </article>
+      <article class="feature">
+        <h3>Live PGM prices</h3>
+        <p>Prices adjust with platinum, palladium, and rhodium spot markets so you stay current day to day.</p>
+      </article>
+      <article class="feature">
+        <h3>Cart &amp; margin tools</h3>
+        <p>Build loads, save carts, export PDFs, and control your pay price with a private margin setting.</p>
+      </article>
+    </section>
+
+    <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading">
+      <h2 id="waitlist-heading">Get notified at launch</h2>
+      <p class="subtitle">Join the waitlist and we&rsquo;ll email you when catXapp launches on the App Store for iPhone.</p>
+      <form
+        id="waitlist-form"
+        class="waitlist-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfI0OS_uDrd1K1CpHlz83-EJoM_IIAD23ULeW18U475o3DOcg/formResponse"
+        method="POST"
+        novalidate>
+        <label class="form-field">
+          <span class="form-label">Name</span>
+          <input type="text" name="entry.2005620554" autocomplete="name" placeholder="Optional">
+        </label>
+        <label class="form-field">
+          <span class="form-label">Email</span>
+          <input type="email" name="entry.1045781291" required autocomplete="email" placeholder="you@example.com">
+        </label>
+        <button type="submit" class="form-submit">Notify me at launch</button>
+        <p id="form-status" class="form-status" hidden role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><a href="privacy.html">Privacy Policy</a></p>
+      <p class="disclaimer">Prices shown in catXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
+      <p>&copy; <span id="year"></span> catXapp</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      var form = document.getElementById("waitlist-form");
+      var status = document.getElementById("form-status");
+      var submitButton = form.querySelector(".form-submit");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        status.hidden = true;
+        status.classList.remove("form-status--success", "form-status--error");
+
+        var emailInput = form.querySelector('input[type="email"]');
+        if (!emailInput.value.trim()) {
+          status.textContent = "Please enter your email address.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          emailInput.focus();
+          return;
+        }
+        if (!emailInput.checkValidity()) {
+          status.textContent = "Please enter a valid email address.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          emailInput.focus();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Submitting…";
+
+        fetch(form.action, {
+          method: "POST",
+          mode: "no-cors",
+          body: new FormData(form)
+        })
+          .then(function () {
+            form.querySelectorAll(".form-field, .form-submit").forEach(function (el) {
+              el.hidden = true;
+            });
+            status.textContent = "You\u2019re on the list! We\u2019ll email you when catXapp launches on the App Store.";
+            status.classList.add("form-status--success");
+            status.hidden = false;
+          })
+          .catch(function () {
+            status.textContent = "Something went wrong. Please try again.";
+            status.classList.add("form-status--error");
+            status.hidden = false;
+            submitButton.disabled = false;
+            submitButton.textContent = "Notify me at launch";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

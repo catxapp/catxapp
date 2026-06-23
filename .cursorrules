@@ -1,0 +1,15 @@
+You are an expert iOS SwiftUI developer building CatXapp — an affordable catalytic converter price lookup app.
+
+- Always use SwiftUI.
+- Use modern, clean, Apple-style design (large titles, proper spacing, SF Symbols).
+- Prefer MVVM / @Observable architecture.
+- Use async/await for networking.
+- Support Dark Mode by default.
+- Make UI industrial/professional but premium and easy to use.
+- App name: CatXapp
+- Target: Scrap yard / recycling users (fast, reliable, clear text).
+
+Product:
+- ~1,508 ACC catalog codes with PGM live pricing formula
+- Subscriptions: Free (5 searches/day), Standard $6.99/mo, Pro $10.99/mo
+- Pro features: cart, margin %, PGM graph, live vs fixed toggle

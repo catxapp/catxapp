@@ -1,0 +1,118 @@
+{
+  "identifier" : "A1B2C3D4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21482901",
+      "localizations" : [
+
+      ],
+      "name" : "CatXapp Premium",
+      "subscriptions" : [
+        {
+          "adoptingMetadata" : {
+            "applicationUsername" : ""
+          },
+          "displayPrice" : "7.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6738291001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Full access to CatXapp with live PGM pricing.",
+              "displayName" : "CatXapp Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "quantumficial.catxapp.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly",
+          "subscriptionGroupID" : "21482901",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adoptingMetadata" : {
+            "applicationUsername" : ""
+          },
+          "displayPrice" : "69.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6738291002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Full access to CatXapp for one year.",
+              "displayName" : "CatXapp Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "quantumficial.catxapp.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Annual",
+          "subscriptionGroupID" : "21482901",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}
