@@ -51,13 +51,14 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Step 2 — Enable GitHub Pages
 
+GitHub only offers `/ (root)` or `/docs` for branch deploy, so this repo uses **GitHub Actions** to publish the `website/` folder.
+
 1. Open your repo on GitHub
 2. **Settings → Pages**
-3. Under **Build and deployment**:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main`
-   - **Folder:** `/website`
-4. Click **Save**
+3. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”)
+4. Push to `main` — the workflow in `.github/workflows/deploy-website.yml` runs automatically
+
+On first setup, you may need to allow GitHub Actions in **Settings → Actions → General** (Workflow permissions: read and write).
 
 GitHub builds the site in 1–3 minutes. Your live URL will be:
 
