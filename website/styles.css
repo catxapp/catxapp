@@ -28,28 +28,56 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 .hero h1 { margin: 1.25rem 0 0.5rem; font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; }
+.wordmark { margin: 1.25rem 0 0.5rem; font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; }
+.wordmark-x { color: var(--accent); }
 .hero .tagline { margin: 0; font-size: 1.05rem; color: var(--text-secondary); max-width: 34rem; margin-inline: auto; }
 .platform-note {
-  margin: 1rem 0 0.35rem;
+  margin: 1rem 0 0;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: 0.02em;
 }
-.trial-offer {
+.trial-card {
+  margin: 1.25rem auto 0;
+  max-width: 26rem;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.trial-card__headline {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #86efac;
+  line-height: 1.4;
+}
+.trial-card__list {
   list-style: none;
-  margin: 0.75rem auto 0;
+  margin: 0;
   padding: 0;
-  max-width: 22rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
+  display: grid;
+  gap: 0.55rem;
+}
+.trial-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
   color: var(--text-secondary);
 }
-.trial-offer li { margin: 0.35rem 0; }
-.trial-offer__lead {
-  font-size: 0.95rem;
-  font-weight: 600;
+.trial-card__check {
+  flex-shrink: 0;
+  width: 1.15rem;
+  margin-top: 0.05rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: #86efac;
+  text-align: center;
 }
 .app-store-cta { margin-top: 1.25rem; }
 .app-store-button {

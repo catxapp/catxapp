@@ -11,14 +11,16 @@
   <main class="container">
     <header class="site-header hero">
       <img src="assets/logo.png" alt="catXapp" class="logo" width="96" height="96">
-      <h1>catXapp</h1>
+      <h1 class="wordmark" aria-label="catXapp"><span>cat</span><span class="wordmark-x">X</span><span>app</span></h1>
       <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
       <p class="platform-note">Available on iPhone only (iOS)</p>
-      <ul class="trial-offer" aria-label="Trial offer">
-        <li class="trial-offer__lead">Free to try — full access for 14 days</li>
-        <li>No credit card required to start</li>
-        <li>The cheapest monthly plan in the market after your trial</li>
-      </ul>
+      <div class="trial-card" aria-label="Trial offer">
+        <p class="trial-card__headline">Free to try — full access for 14 days</p>
+        <ul class="trial-card__list">
+          <li><span class="trial-card__check" aria-hidden="true">✓</span> No credit card required to start</li>
+          <li><span class="trial-card__check" aria-hidden="true">✓</span> The cheapest monthly plan in the market after your trial</li>
+        </ul>
+      </div>
       <div id="app-store-cta" class="app-store-cta" hidden>
         <a id="app-store-link" class="app-store-button" href="#" rel="noopener">Download on the App Store</a>
       </div>
