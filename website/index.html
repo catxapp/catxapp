@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="catXapp — fast catalytic converter price lookup for iOS. Live PGM-adjusted pricing, cart tools, and margin control. Try free for 14 days, then $7.99/month.">
+  <meta name="description" content="catXapp — fast catalytic converter price lookup for iPhone. Live PGM-adjusted pricing, cart tools, and margin control. Free to try for 14 days — no credit card required.">
   <title>catXapp — Catalytic Converter Pricing</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,7 +14,14 @@
       <h1>catXapp</h1>
       <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
       <p class="platform-note">Available on iPhone only (iOS)</p>
-      <p class="pricing-note">Try free for 14 days, then just $7.99/month</p>
+      <ul class="trial-offer" aria-label="Trial offer">
+        <li class="trial-offer__lead">Free to try — full access for 14 days</li>
+        <li>No credit card required to start</li>
+        <li>The cheapest monthly plan in the market after your trial</li>
+      </ul>
+      <div id="app-store-cta" class="app-store-cta" hidden>
+        <a id="app-store-link" class="app-store-button" href="#" rel="noopener">Download on the App Store</a>
+      </div>
     </header>
 
     <section class="features" aria-label="Features">
@@ -32,7 +39,7 @@
       </article>
     </section>
 
-    <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading">
+    <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading" data-prelaunch>
       <h2 id="waitlist-heading">Get notified at launch</h2>
       <p class="subtitle">Join the waitlist and we&rsquo;ll email you when catXapp launches on the App Store for iPhone.</p>
       <form
@@ -61,8 +68,21 @@
     <p class="copyright">&copy; <span id="year"></span> catXapp</p>
   </footer>
 
+  <script src="site-config.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      var config = window.SITE_CONFIG || {};
+      if (!config.launched) return;
+
+      var waitlist = document.getElementById("waitlist");
+      var cta = document.getElementById("app-store-cta");
+      var link = document.getElementById("app-store-link");
+      if (waitlist) waitlist.hidden = true;
+      if (cta) cta.hidden = false;
+      if (link && config.appStoreURL) link.href = config.appStoreURL;
+    })();
 
     (function () {
       var form = document.getElementById("waitlist-form");

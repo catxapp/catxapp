@@ -36,12 +36,35 @@ a:hover { text-decoration: underline; }
   color: var(--text);
   letter-spacing: 0.02em;
 }
-.pricing-note {
-  margin: 0;
+.trial-offer {
+  list-style: none;
+  margin: 0.75rem auto 0;
+  padding: 0;
+  max-width: 22rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.trial-offer li { margin: 0.35rem 0; }
+.trial-offer__lead {
   font-size: 0.95rem;
   font-weight: 600;
   color: #86efac;
 }
+.app-store-cta { margin-top: 1.25rem; }
+.app-store-button {
+  display: inline-block;
+  padding: 0.75rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.app-store-button:hover { opacity: 0.9; text-decoration: none; }
 .features { display: grid; gap: 1rem; margin: 2.5rem 0; }
 .feature { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.35rem; }
 .feature h3 { margin: 0 0 0.35rem; font-size: 1rem; font-weight: 600; }
