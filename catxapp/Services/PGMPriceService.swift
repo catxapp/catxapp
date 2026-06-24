@@ -41,20 +41,52 @@ final class PGMPriceService {
         isRefreshing = true
         defer { isRefreshing = false }
 
-        if let fetched = await fetchLiveQuote() {
-            quote = fetched
-            quoteSource = "Kitco"
-            persistCache(fetched)
+        if let fetched = await KitcoPriceClient.fetchPGMQuote() {
+            applyQuote(fetched, source: KitcoPriceClient.sourceName)
             lastError = nil
-        } else if quote == nil,
-                  let anchorDate = config?.anchorDate,
-                  let anchor = config?.historical[anchorDate] {
+            return
+        }
+
+        if let rhodiumBid = rhodiumFallbackBid(),
+           let fetched = await BullionRatesPriceClient.fetchPGMQuote(rhodiumBid: rhodiumBid) {
+            applyQuote(fetched, source: BullionRatesPriceClient.sourceName)
+            lastError = "Kitco unavailable. Using BullionRates for platinum and palladium."
+            return
+        }
+
+        if quote == nil,
+           let anchorDate = config?.anchorDate,
+           let anchor = config?.historical[anchorDate] {
             quote = PGMQuote(pt: anchor.pt, pd: anchor.pd, rh: anchor.rh, updatedAt: Date())
             quoteSource = "Catalog anchor (\(anchorDate))"
-            lastError = "Could not reach Kitco. Using catalog anchor prices from \(anchorDate)."
+            lastError = "Could not reach live market feeds. Using catalog anchor prices from \(anchorDate)."
         } else if quote != nil {
-            lastError = "Could not refresh Kitco prices. Showing last known values."
+            lastError = "Could not refresh live market prices. Showing last known values."
         }
+    }
+
+    private func applyQuote(_ fetched: PGMQuote, source: String) {
+        quote = fetched
+        quoteSource = source
+        persistCache(fetched)
+    }
+
+    private func rhodiumFallbackBid() -> Double? {
+        if let rh = quote?.rh, rh > 0 { return rh }
+
+        if let data = UserDefaults.standard.data(forKey: cacheKey),
+           let cached = try? JSONDecoder().decode(CachedQuote.self, from: data),
+           cached.rh > 0 {
+            return cached.rh
+        }
+
+        if let anchorDate = config?.anchorDate,
+           let anchor = config?.historical[anchorDate],
+           anchor.rh > 0 {
+            return anchor.rh
+        }
+
+        return nil
     }
 
     func index(for quote: PGMQuote) -> Double? {
@@ -70,10 +102,6 @@ final class PGMPriceService {
     private var shouldRefresh: Bool {
         guard let quote else { return true }
         return Date().timeIntervalSince(quote.updatedAt) > 60 * 60 * 6
-    }
-
-    private func fetchLiveQuote() async -> PGMQuote? {
-        await KitcoPriceClient.fetchPGMQuote()
     }
 
     private func restoreCache() {

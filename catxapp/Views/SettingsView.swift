@@ -11,6 +11,7 @@ struct SettingsView: View {
             Form {
                 subscriptionSection
                 pricingSection
+                aboutSection
                 debugSection
             }
             .navigationTitle("Settings")
@@ -68,6 +69,23 @@ struct SettingsView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
+            }
+        }
+    }
+
+    private var aboutSection: some View {
+        Section("About") {
+            Link(destination: AppLinks.support) {
+                Label("Support", systemImage: "questionmark.circle")
+            }
+
+            Link(destination: AppLinks.privacyPolicy) {
+                Label("Privacy Policy", systemImage: "hand.raised")
+            }
+
+            if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+               let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+                LabeledContent("Version", value: "\(version) (\(build))")
             }
         }
     }

@@ -2,10 +2,20 @@
 
 Single-page landing site for pre-launch marketing. Visitors join a waitlist; signups land in your linked **Google Sheet** with email notifications.
 
+**Production URLs (custom domain):**
+
+| Page | URL |
+|------|-----|
+| Homepage / Support | `https://catxapp.com/` |
+| Privacy policy | `https://catxapp.com/privacy.html` |
+
+Setup: see [`docs/DOMAIN_SETUP.md`](../docs/DOMAIN_SETUP.md). The repo includes [`CNAME`](CNAME) for GitHub Pages.
+
 | Page | Purpose |
 |------|---------|
-| `index.html` | Hero, features, waitlist form |
+| `index.html` | Hero, features, waitlist form (or App Store CTA after launch) |
 | `privacy.html` | Privacy policy (required for App Store + form compliance) |
+| `site-config.js` | Set `launched: true` and App Store URL on launch day |
 
 The waitlist uses a **native HTML form** that submits to Google Forms — no iframe, no inner scroll bar.
 
@@ -76,14 +86,18 @@ https://YOUR_USERNAME.github.io/catxapp/
 
 | Field | URL |
 |-------|-----|
-| Privacy Policy URL | `https://YOUR_USERNAME.github.io/catxapp/privacy.html` |
-| Support URL | `https://YOUR_USERNAME.github.io/catxapp/` |
+| Privacy Policy URL | `https://catxapp.com/privacy.html` |
+| Support URL | `https://catxapp.com/` |
 
-Update the iOS app Settings links to the same URLs once deployed.
+(Fallback before DNS propagates: `https://YOUR_USERNAME.github.io/catxapp/privacy.html`)
+
+Update the iOS app links in [`catxapp/Support/AppLinks.swift`](../catxapp/Support/AppLinks.swift) — already points to catxapp.com.
 
 ---
 
-## Custom domain — catxapp.com (when you buy it)
+## Custom domain — catxapp.com
+
+**Primary setup guide:** [`docs/DOMAIN_SETUP.md`](../docs/DOMAIN_SETUP.md)
 
 GitHub Pages supports a custom domain at no extra cost. Plan on using **catxapp.com** as the root and optionally **www.catxapp.com**.
 
@@ -114,7 +128,7 @@ GitHub may create a `CNAME` file in the repo automatically. This repo already in
 
 | Type | Host | Value |
 |------|------|-------|
-| CNAME | `www` | `YOUR_USERNAME.github.io` |
+| CNAME | `www` | `catxapp.github.io` |
 
 Some registrars use `@` for root; others use a blank host field. DNS can take up to 24–48 hours to propagate (often much faster).
 

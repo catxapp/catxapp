@@ -1,11 +1,11 @@
 {
   "weights": {
-    "pt": 0.8,
-    "pd": 0.15,
-    "rh": 0.05
+    "pt": 0.85,
+    "pd": 0.05,
+    "rh": 0.1
   },
-  "anchorDate": "2026-06-17",
-  "anchorIndex": 2011.35,
+  "anchorDate": "2026-06-24",
+  "anchorIndex": 2132.25,
   "priceType": "bid",
   "indexFormula": "index = (wPt \u00d7 Pt) + (wPd \u00d7 Pd) + (wRh \u00d7 Rh)",
   "livePriceFormula": "livePrice = anchorPrice \u00d7 (currentIndex \u00f7 anchorIndex)",
@@ -19,6 +19,11 @@
       "pt": 1789.0,
       "pd": 1326.0,
       "rh": 7625.0
+    },
+    "2026-06-24": {
+      "pt": 1571.0,
+      "pd": 1138.0,
+      "rh": 7400.0
     }
   },
   "priceLists": [
@@ -41,8 +46,19 @@
         "rh": 7625.0
       },
       "kitcoNotes": "Kitco NY spot bid on June 17, 2026 (kitco.com precious metals table)."
+    },
+    {
+      "date": "2026-06-24",
+      "pdfFile": "ACC PRICE LIST 6x24x2026.pdf",
+      "kitcoSpot": {
+        "pt": 1571.0,
+        "pd": 1138.0,
+        "rh": 7400.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on June 24, 2026 (kitco.com precious metals table)."
     }
   ],
-  "calibrationRMSE": 7.23,
-  "matchedPairs": 1508
+  "calibrationRMSE": 3.47,
+  "calibrationPair": "2026-06-17 \u2192 2026-06-24",
+  "matchedPairs": 10000
 }

@@ -5,6 +5,8 @@ struct PGMMarketStripView: View {
     let isRefreshing: Bool
     let onRefresh: () -> Void
 
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
         HStack(spacing: 10) {
             marketLabel
@@ -56,22 +58,32 @@ struct PGMMarketStripView: View {
     }
 
     private var marketLabel: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            HStack(spacing: 5) {
-                Circle()
-                    .fill(Color.green.opacity(0.9))
-                    .frame(width: 6, height: 6)
-                Text("Market")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.secondary)
+        Button {
+            openURL(AppLinks.kitcoPreciousMetals)
+        } label: {
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 4) {
+                    Circle()
+                        .fill(Color.green.opacity(0.9))
+                        .frame(width: 6, height: 6)
+                    Text("Market")
+                        .font(.caption.weight(.semibold))
+                    Image(systemName: "arrow.up.right")
+                        .font(.caption2.weight(.semibold))
+                }
+                .foregroundStyle(Color.accentColor)
+
+                if let updated = quote?.updatedAt {
+                    Text(updated.formatted(date: .omitted, time: .shortened))
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
             }
-            if let updated = quote?.updatedAt {
-                Text(updated.formatted(date: .omitted, time: .shortened))
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-            }
+            .frame(minWidth: 54, alignment: .leading)
         }
-        .frame(minWidth: 54, alignment: .leading)
+        .buttonStyle(.plain)
+        .accessibilityLabel("Market")
+        .accessibilityHint("Opens Kitco live precious metal prices and charts")
     }
 
     private func metalPill(symbol: String, price: Double, tint: Color) -> some View {

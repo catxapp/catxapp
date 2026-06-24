@@ -1,80 +1,137 @@
 # App Store Connect Setup for CatXapp
 
-Use this checklist when you are ready to test subscriptions on a real device or submit to TestFlight.
+Use this checklist when your Apple Developer Program enrollment is **Active** and App Store Connect loads successfully.
 
-## 1. App record
+**URLs (custom domain):**
 
-1. Sign in to [App Store Connect](https://appstoreconnect.apple.com).
-2. Create an app with bundle ID: `quantumficial.catxapp`
-3. Set the display name to **CatXapp**.
+| Field | URL |
+|-------|-----|
+| Privacy Policy | `https://catxapp.com/privacy.html` |
+| Support | `https://catxapp.com/` |
 
-## 2. Subscription group
+See [`DOMAIN_SETUP.md`](DOMAIN_SETUP.md) if the site is not live yet.
+
+---
+
+## 1. Certificates and bundle ID
+
+1. Sign in to [Apple Developer](https://developer.apple.com/account).
+2. **Certificates, Identifiers & Profiles → Identifiers** — confirm `quantumficial.catxapp` exists (App ID).
+3. In Xcode, select the **catxapp** target → **Signing & Capabilities** → choose your team. Automatic signing should provision profiles.
+
+## 2. Agreements, tax, and banking
+
+1. [App Store Connect](https://appstoreconnect.apple.com) → **Business** (or Agreements tab).
+2. Complete **Paid Applications** agreement.
+3. Add **banking** and **tax** information.
+
+Without this, StoreKit products will not load on a real device.
+
+## 3. App record
+
+1. **Apps** → **+** → New App.
+2. Platform: **iOS**
+3. Name: **CatXapp**
+4. Primary language: **English (U.S.)**
+5. Bundle ID: `quantumficial.catxapp`
+6. SKU: `catxapp` (any unique string)
+7. User access: Full Access
+
+**App Information:**
+
+| Field | Value |
+|-------|-------|
+| Category (primary) | Business or Utilities |
+| Privacy Policy URL | `https://catxapp.com/privacy.html` |
+| Support URL | `https://catxapp.com/` |
+
+## 4. Subscription group
 
 1. Open your app → **Subscriptions**.
-2. Create a subscription group named **CatXapp Premium**.
+2. Create a subscription group: **CatXapp Premium**.
 
-## 3. Products (must match the app exactly)
+## 5. Products (must match the app exactly)
 
 Create two auto-renewable subscriptions in the same group:
 
-| Product ID | Price | Duration |
-|------------|-------|----------|
-| `quantumficial.catxapp.monthly` | $7.99 | 1 month |
-| `quantumficial.catxapp.annual` | $69.99 | 1 year |
+| Product ID | Price | Duration | Display name (suggested) |
+|------------|-------|----------|--------------------------|
+| `quantumficial.catxapp.monthly` | $7.99 | 1 month | CatXapp Monthly |
+| `quantumficial.catxapp.annual` | $69.99 | 1 year | CatXapp Annual |
 
 For each product:
+
 - Add English display name and description
-- Set pricing for your primary territory
-- Submit subscription metadata for review with your app
+- Set pricing for your primary territory (United States)
+- Add subscription localization for App Review
+- Submit subscription metadata **with** your app binary
 
-## 4. Free trial (in-app, not StoreKit intro offer)
+Product IDs are defined in [`catxapp/Services/SubscriptionManager.swift`](../catxapp/Services/SubscriptionManager.swift). If you change them in Connect, update the Swift constants.
 
-CatXapp uses a **14-day local trial** after first install. Users get full access without entering payment info. After 14 days, the in-app paywall appears.
+## 6. Free trial (in-app, not StoreKit intro offer)
 
-You do **not** need a StoreKit introductory offer for the trial unless you later switch to Apple’s subscription trial flow.
+CatXapp uses a **14-day local trial** after first install. Users get full access without payment info. After 14 days, the in-app paywall appears.
 
-## 5. Agreements and tax
+You do **not** need a StoreKit introductory offer unless you later switch to Apple’s subscription trial flow.
 
-1. Complete **Paid Applications** agreement in App Store Connect
-2. Add banking and tax information
+**Review notes (paste when submitting):**
 
-Without this, StoreKit products will not load on device.
+> CatXapp includes a 14-day free trial managed locally on device. No payment is required during the trial. After 14 days, users see an in-app paywall to subscribe via StoreKit. Sandbox testers can use Settings → Debug → Access → Trial Ended (debug builds) or wait 14 days to test the paywall.
 
-## 6. Sandbox testing
+## 7. Simulator testing (no Connect required)
 
-1. Create a **Sandbox Apple ID** under Users and Access → Sandbox Testers
-2. On your test iPhone: Settings → App Store → Sandbox Account
-3. Build to device from Xcode and purchase using the sandbox account
-
-## 7. Simulator testing (local)
-
-The project includes [`Products.storekit`](../Products.storekit). The shared Xcode scheme is already configured to use it.
+The project includes [`Products.storekit`](../Products.storekit). The shared Xcode scheme uses it.
 
 1. Open the project in Xcode
-2. Press **⌘R** to run in Simulator
-3. Open **Settings → Subscribe** or trigger the paywall after trial expires
-4. Use **Restore Purchases** to test entitlement recovery
+2. Press **⌘R** in Simulator
+3. Open **Settings → Subscribe** or trigger the paywall
+4. Test **Restore Purchases**
 
 ## 8. Debug access states
 
-In Debug builds, open **Settings → Debug → Access** to simulate:
-- **Free Trial** — full access with trial countdown
+In Debug builds: **Settings → Debug → Access**
+
+- **Free Trial** — full access with countdown
 - **Subscribed** — full access, no paywall
-- **Trial Ended** — paywall on search/cart actions
+- **Trial Ended** — paywall on search/cart
 
 ## 9. Before TestFlight
 
-- [ ] Both products approved in App Store Connect
 - [ ] Paid Applications agreement active
-- [ ] Privacy Policy URL ready (required for subscriptions)
-- [ ] Test monthly purchase, annual purchase, and restore on a sandbox device
-- [ ] Verify trial countdown and paywall after 14 days (or use Debug → Trial Ended)
+- [ ] Banking and tax complete
+- [ ] Both subscription products created in Connect
+- [ ] Privacy policy live at `https://catxapp.com/privacy.html`
+- [ ] Sandbox purchase tested on device (see [`SANDBOX_TESTING.md`](SANDBOX_TESTING.md))
 
-## 10. Product IDs in code
+## 10. Screenshots (prepare before submission)
 
-These IDs are defined in [`catxapp/Services/SubscriptionManager.swift`](../catxapp/Services/SubscriptionManager.swift):
+Capture on **6.7" iPhone** simulator or device (1290 × 2796 px):
 
-- `quantumficial.catxapp.monthly`
-- `quantumficial.catxapp.annual`
+| # | Screen | What to show |
+|---|--------|--------------|
+| 1 | Search | Code lookup with results and PGM strip |
+| 2 | Cart | Cart with items and total |
+| 3 | Pricing | Settings → Pricing with margin controls |
+| 4 | Paywall | Subscription options (monthly + annual) |
 
-If you change them in App Store Connect, update the Swift constants to match.
+Optional: Saved carts, PDF export preview.
+
+## 11. App Privacy questionnaire
+
+CatXapp stores data **on device only** (cart, settings, trial date). Declare accordingly:
+
+- No data linked to user identity collected by you
+- Precise location: No
+- Subscriptions: handled by Apple (not collected by app)
+
+Adjust answers if Apple’s questionnaire changes.
+
+## 12. Related guides
+
+| Phase | Doc |
+|-------|-----|
+| Domain + website | [`DOMAIN_SETUP.md`](DOMAIN_SETUP.md) |
+| Sandbox purchases | [`SANDBOX_TESTING.md`](SANDBOX_TESTING.md) |
+| TestFlight beta | [`TESTFLIGHT.md`](TESTFLIGHT.md) |
+| App Store submission | [`APP_STORE_SUBMISSION.md`](APP_STORE_SUBMISSION.md) |
+| Launch day | [`LAUNCH_DAY.md`](LAUNCH_DAY.md) |

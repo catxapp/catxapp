@@ -13,6 +13,9 @@ struct HomeView: View {
 
         NavigationStack {
             VStack(spacing: 16) {
+                CatXappWordmark()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
                 searchSection(query: $app.searchQuery)
 
                 if isSearchSubmitted, !showSuggestions {
@@ -31,7 +34,7 @@ struct HomeView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
-            .navigationTitle("CatXapp")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Pricing") {

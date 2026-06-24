@@ -11,5 +11,6 @@ You are an expert iOS SwiftUI developer building CatXapp — an affordable catal
 
 Product:
 - ~1,508 ACC catalog codes with PGM live pricing formula
-- Subscriptions: Free (5 searches/day), Standard $6.99/mo, Pro $10.99/mo
-- Pro features: cart, margin %, PGM graph, live vs fixed toggle
+- Monetization: 14-day full trial, then premium subscription ($7.99/mo or $69.99/yr)
+- Premium features: unlimited search, cart, margin %, live PGM pricing, saved carts, PDF export
+- Website: https://catxapp.com (privacy + support URLs)

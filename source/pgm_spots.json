@@ -23,6 +23,17 @@
         "rh": 7625.0
       },
       "kitcoNotes": "Kitco NY spot bid on June 17, 2026 (kitco.com precious metals table)."
+    },
+    {
+      "date": "2026-06-24",
+      "pdfFile": "ACC PRICE LIST 6x24x2026.pdf",
+      "supplier": "American Iron and Metal, LLC",
+      "kitcoSpot": {
+        "pt": 1571.0,
+        "pd": 1138.0,
+        "rh": 7400.0
+      },
+      "kitcoNotes": "Kitco NY spot bid on June 24, 2026 (kitco.com precious metals table)."
     }
   ]
 }
