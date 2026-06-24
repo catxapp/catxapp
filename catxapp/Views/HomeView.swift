@@ -65,7 +65,7 @@ struct HomeView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else if app.subscription.accessStatus == .expired {
-                    Text("Trial ended — subscribe to continue")
+                    Text("Subscribe to start your 14-day free trial")
                         .font(.caption)
                         .foregroundStyle(.orange)
                 }

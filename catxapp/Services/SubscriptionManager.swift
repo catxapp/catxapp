@@ -19,7 +19,7 @@ enum AccessStatus: String, CaseIterable, Identifiable, Sendable {
         switch self {
         case .trialActive: "Free Trial"
         case .subscribed: "Subscribed"
-        case .expired: "Trial Ended"
+        case .expired: "Subscription Required"
         }
     }
 }
@@ -27,24 +27,24 @@ enum AccessStatus: String, CaseIterable, Identifiable, Sendable {
 @MainActor
 @Observable
 final class SubscriptionManager {
-    private(set) var accessStatus: AccessStatus = .trialActive
+    private(set) var accessStatus: AccessStatus = .expired
     private(set) var products: [Product] = []
     private(set) var isLoading = false
     private(set) var isSubscribed = false
+    private(set) var isInIntroOfferPeriod = false
     private(set) var activeProductID: String?
+    private(set) var subscriptionExpirationDate: Date?
 
-    private let firstLaunchKey = "subscription.firstLaunchDate"
-    private let trialLengthDays = 14
     private var updatesTask: Task<Void, Never>?
 
     var hasFullAccess: Bool {
-        accessStatus == .trialActive || accessStatus == .subscribed
+        isSubscribed
     }
 
     var trialDaysRemaining: Int? {
-        guard accessStatus == .trialActive, let firstLaunch = firstLaunchDate else { return nil }
-        let elapsed = Calendar.current.dateComponents([.day], from: firstLaunch, to: Date()).day ?? 0
-        return max(0, trialLengthDays - elapsed)
+        guard accessStatus == .trialActive, let expiration = subscriptionExpirationDate else { return nil }
+        let days = Calendar.current.dateComponents([.day], from: Date(), to: expiration).day ?? 0
+        return max(0, days)
     }
 
     var monthlyProduct: Product? {
@@ -53,11 +53,6 @@ final class SubscriptionManager {
 
     var annualProduct: Product? {
         products.first { $0.id == SubscriptionProductID.annual }
-    }
-
-    init() {
-        recordFirstLaunchIfNeeded()
-        refreshAccessStatus()
     }
 
     func startListeningForTransactions() {
@@ -80,22 +75,30 @@ final class SubscriptionManager {
 
         products = (try? await Product.products(for: SubscriptionProductID.all)) ?? []
         await refreshEntitlements()
-        refreshAccessStatus()
     }
 
     func refreshEntitlements() async {
-        var subscribed = false
+        var entitled = false
         var productID: String?
+        var inIntro = false
+        var expiration: Date?
 
         for await result in Transaction.currentEntitlements {
             guard case .verified(let transaction) = result else { continue }
             guard SubscriptionProductID.all.contains(transaction.productID) else { continue }
-            subscribed = true
+
+            entitled = true
             productID = transaction.productID
+            inIntro = transaction.offer?.type == .introductory
+            if let transactionExpiration = transaction.expirationDate {
+                expiration = transactionExpiration
+            }
         }
 
-        isSubscribed = subscribed
+        isSubscribed = entitled
+        isInIntroOfferPeriod = entitled && inIntro
         activeProductID = productID
+        subscriptionExpirationDate = expiration
         refreshAccessStatus()
     }
 
@@ -123,38 +126,65 @@ final class SubscriptionManager {
         !hasFullAccess
     }
 
+    func purchaseButtonTitle(for product: Product) -> String {
+        if let intro = product.subscription?.introductoryOffer, intro.paymentMode == .freeTrial {
+            return "Start \(introPeriodLabel(intro)) Free Trial — then \(product.displayPrice)"
+        }
+
+        switch product.id {
+        case SubscriptionProductID.monthly:
+            return "Subscribe — \(product.displayPrice)/mo"
+        case SubscriptionProductID.annual:
+            return "Subscribe — \(product.displayPrice)/yr"
+        default:
+            return "Subscribe — \(product.displayPrice)"
+        }
+    }
+
     #if DEBUG
     func setDebugAccessStatus(_ status: AccessStatus) {
         accessStatus = status
-        if status == .subscribed {
+        switch status {
+        case .trialActive:
             isSubscribed = true
-        } else if status == .expired {
+            isInIntroOfferPeriod = true
+            subscriptionExpirationDate = Calendar.current.date(byAdding: .day, value: 7, to: Date())
+        case .subscribed:
+            isSubscribed = true
+            isInIntroOfferPeriod = false
+        case .expired:
             isSubscribed = false
+            isInIntroOfferPeriod = false
+            subscriptionExpirationDate = nil
+            activeProductID = nil
         }
     }
     #endif
 
-    private var firstLaunchDate: Date? {
-        UserDefaults.standard.object(forKey: firstLaunchKey) as? Date
-    }
-
-    private func recordFirstLaunchIfNeeded() {
-        guard UserDefaults.standard.object(forKey: firstLaunchKey) == nil else { return }
-        UserDefaults.standard.set(Date(), forKey: firstLaunchKey)
-    }
-
     private func refreshAccessStatus() {
-        if isSubscribed {
-            accessStatus = .subscribed
+        guard isSubscribed else {
+            accessStatus = .expired
             return
         }
 
-        guard let firstLaunch = firstLaunchDate else {
-            accessStatus = .trialActive
-            return
-        }
+        accessStatus = isInIntroOfferPeriod ? .trialActive : .subscribed
+    }
 
-        let elapsed = Calendar.current.dateComponents([.day], from: firstLaunch, to: Date()).day ?? 0
-        accessStatus = elapsed < trialLengthDays ? .trialActive : .expired
+    private func introPeriodLabel(_ offer: Product.SubscriptionOffer) -> String {
+        let totalDays = offer.period.value * offer.periodCount
+        switch offer.period.unit {
+        case .day where totalDays == 14:
+            return "14-Day"
+        case .day:
+            return "\(totalDays)-Day"
+        case .week:
+            return totalDays == 1 ? "1-Week" : "\(totalDays)-Week"
+        case .month:
+            return totalDays == 1 ? "1-Month" : "\(totalDays)-Month"
+        case .year:
+            return totalDays == 1 ? "1-Year" : "\(totalDays)-Year"
+        @unknown default:
+            return "14-Day"
+        }
     }
 }

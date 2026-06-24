@@ -14,15 +14,14 @@ Run this checklist on a **physical iPhone** after App Store Connect products and
 
 | # | Test | Expected result | Pass |
 |---|------|-----------------|------|
-| 1 | Fresh install, open app | 14-day trial active; search works | [ ] |
-| 2 | Settings → Status | Shows "Free Trial" with days remaining | [ ] |
-| 3 | Settings → Debug → Trial Ended (debug build only) | Paywall on search/cart | [ ] |
-| 4 | Paywall → Monthly purchase | Sandbox purchase completes; full access | [ ] |
-| 5 | Delete app, reinstall, Restore Purchases | Access restored without new charge | [ ] |
-| 6 | Paywall → Annual purchase | Annual plan active in Settings | [ ] |
-| 7 | Settings → Manage Subscription | Opens Apple subscription management | [ ] |
-| 8 | Settings → Privacy Policy | Opens `https://catxapp.com/privacy.html` | [ ] |
-| 9 | Settings → Support | Opens `https://catxapp.com/` | [ ] |
+| 1 | Fresh install, open app | Paywall until subscription; search blocked | [ ] |
+| 2 | Paywall → Monthly (start trial) | Sandbox purchase completes; "Free Trial" with days remaining | [ ] |
+| 3 | Settings → Debug → Subscription Required (debug build only) | Paywall on search/cart | [ ] |
+| 4 | Delete app, reinstall, Restore Purchases | Trial/subscription restored without new charge | [ ] |
+| 5 | Paywall → Annual purchase | Annual plan active in Settings | [ ] |
+| 6 | Settings → Manage Subscription | Opens Apple subscription management | [ ] |
+| 7 | Settings → Privacy Policy | Opens `https://catxapp.com/privacy.html` | [ ] |
+| 8 | Settings → Support | Opens `https://catxapp.com/` | [ ] |
 
 ## Troubleshooting
 

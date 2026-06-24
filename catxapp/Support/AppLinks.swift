@@ -5,6 +5,6 @@ enum AppLinks {
     static let privacyPolicy = URL(string: "https://catxapp.com/privacy.html")!
     static let support = URL(string: "https://catxapp.com/")!
 
-    /// Kitco live spot prices and PGM charts.
-    static let kitcoPreciousMetals = URL(string: "https://www.kitco.com/price/precious-metals")!
+    /// Replace with the real App Store URL after the app is approved.
+    static let appStore = URL(string: "https://apps.apple.com/app/id0000000000")!
 }

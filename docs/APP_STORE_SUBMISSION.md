@@ -54,7 +54,7 @@ CatXapp is built for scrap yards and catalytic converter buyers who need fast, r
 • Private margin setting so you control your pay price
 • Save and recall carts for repeat customers
 
-Try CatXapp free for 14 days. After your trial, subscribe to keep unlimited access.
+Try CatXapp free for 14 days with a monthly subscription through the App Store. After your trial, your subscription continues unless you cancel.
 
 Prices are estimates based on catalog data and live metal markets. Always verify before buying.
 ```
@@ -99,11 +99,11 @@ Complete the questionnaire — expect **4+** (no restricted content).
 **Notes for reviewer:**
 
 ```
-CatXapp offers a 14-day free trial on device (no payment required). After 14 days, a subscription paywall appears.
+CatXapp offers a 14-day free trial via StoreKit introductory offer on the monthly subscription ($7.99/month after trial). Users start the trial through the App Store.
 
-To test expired trial on a debug build: Settings → Debug → Access → Trial Ended.
+To test without subscribing in a debug build: Settings → Debug → Access → Subscription Required.
 
-To test purchase: use Sandbox account configured on device. Products: quantumficial.catxapp.monthly ($7.99) and quantumficial.catxapp.annual ($69.99).
+To test purchase/trial: use a Sandbox account on device. Products: quantumficial.catxapp.monthly and quantumficial.catxapp.annual ($69.99/year).
 
 No login required. All data stored locally on device.
 ```

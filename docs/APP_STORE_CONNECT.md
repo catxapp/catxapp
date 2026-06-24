@@ -68,15 +68,20 @@ For each product:
 
 Product IDs are defined in [`catxapp/Services/SubscriptionManager.swift`](../catxapp/Services/SubscriptionManager.swift). If you change them in Connect, update the Swift constants.
 
-## 6. Free trial (in-app, not StoreKit intro offer)
+## 6. Free trial (StoreKit introductory offer)
 
-CatXapp uses a **14-day local trial** after first install. Users get full access without payment info. After 14 days, the in-app paywall appears.
+CatXapp uses a **14-day free trial** via Apple’s **introductory subscription offer** on the monthly plan. Users start the trial through the App Store; Apple enforces one trial per Apple ID per subscription group (survives reinstall).
 
-You do **not** need a StoreKit introductory offer unless you later switch to Apple’s subscription trial flow.
+**App Store Connect setup (monthly product):**
+1. Open **CatXapp Monthly** → **Subscription Prices**
+2. Add **Introductory Offer** → **Free** → **2 weeks** (14 days)
+3. Submit with your app for review
+
+Annual plan has no introductory offer (standard subscribe price).
 
 **Review notes (paste when submitting):**
 
-> CatXapp includes a 14-day free trial managed locally on device. No payment is required during the trial. After 14 days, users see an in-app paywall to subscribe via StoreKit. Sandbox testers can use Settings → Debug → Access → Trial Ended (debug builds) or wait 14 days to test the paywall.
+> CatXapp uses a 14-day free trial via StoreKit introductory offer on the monthly subscription. Users subscribe through the App Store to begin the trial. Sandbox testers can subscribe with a sandbox Apple ID. To test without subscribing in debug builds: Settings → Debug → Access.
 
 ## 7. Simulator testing (no Connect required)
 
@@ -93,13 +98,14 @@ In Debug builds: **Settings → Debug → Access**
 
 - **Free Trial** — full access with countdown
 - **Subscribed** — full access, no paywall
-- **Trial Ended** — paywall on search/cart
+- **Subscription Required** — paywall on search/cart
 
 ## 9. Before TestFlight
 
 - [ ] Paid Applications agreement active
 - [ ] Banking and tax complete
 - [ ] Both subscription products created in Connect
+- [ ] Monthly product has 14-day free introductory offer
 - [ ] Privacy policy live at `https://catxapp.com/privacy.html`
 - [ ] Sandbox purchase tested on device (see [`SANDBOX_TESTING.md`](SANDBOX_TESTING.md))
 
@@ -118,7 +124,7 @@ Optional: Saved carts, PDF export preview.
 
 ## 11. App Privacy questionnaire
 
-CatXapp stores data **on device only** (cart, settings, trial date). Declare accordingly:
+CatXapp stores data **on device only** (cart, settings, subscription state). Declare accordingly:
 
 - No data linked to user identity collected by you
 - Precise location: No

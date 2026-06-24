@@ -14,7 +14,7 @@ struct PaywallView: View {
                     Text(headline)
                         .font(.largeTitle.bold())
 
-                    Text("Subscribe to keep using CatXapp with live PGM-adjusted pricing and yard tools.")
+                    Text(subheadline)
                         .foregroundStyle(.secondary)
 
                     VStack(alignment: .leading, spacing: 10) {
@@ -27,22 +27,22 @@ struct PaywallView: View {
                     .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 16))
 
                     if app.subscription.products.isEmpty {
+                        #if DEBUG
                         Text("Connect App Store products in App Store Connect to enable purchases. For Simulator testing, select Products.storekit in your Xcode scheme.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
+                        #else
+                        Text("Subscription options are loading. Check your connection and try again.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        #endif
                     } else {
                         if let monthly = app.subscription.monthlyProduct {
-                            purchaseButton(
-                                title: "Monthly — \(monthly.displayPrice)/mo",
-                                product: monthly
-                            )
+                            purchaseButton(product: monthly)
                         }
 
                         if let annual = app.subscription.annualProduct {
-                            purchaseButton(
-                                title: "Annual — \(annual.displayPrice)/yr",
-                                product: annual
-                            )
+                            purchaseButton(product: annual)
                         }
                     }
 
@@ -75,9 +75,17 @@ struct PaywallView: View {
                             .foregroundStyle(.orange)
                     }
 
-                    Text("Payment will be charged to your Apple ID account. Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period.")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Start a 14-day free trial through the App Store. Payment is charged to your Apple ID after the trial unless you cancel earlier. Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period.")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+
+                        HStack(spacing: 16) {
+                            Link("Privacy Policy", destination: AppLinks.privacyPolicy)
+                            Link("Support", destination: AppLinks.support)
+                        }
+                        .font(.caption)
+                    }
                 }
                 .padding()
             }
@@ -92,9 +100,13 @@ struct PaywallView: View {
 
     private var headline: String {
         if app.subscription.accessStatus == .expired {
-            return "Your free trial has ended"
+            return "Start your free trial"
         }
         return "Subscribe to CatXapp"
+    }
+
+    private var subheadline: String {
+        "Get live PGM-adjusted pricing and yard tools with a 14-day free trial, managed by Apple."
     }
 
     private func featureRow(_ text: String) -> some View {
@@ -102,7 +114,7 @@ struct PaywallView: View {
             .foregroundStyle(.secondary)
     }
 
-    private func purchaseButton(title: String, product: Product) -> some View {
+    private func purchaseButton(product: Product) -> some View {
         Button {
             Task {
                 errorMessage = nil
@@ -116,8 +128,9 @@ struct PaywallView: View {
                 }
             }
         } label: {
-            Text(title)
+            Text(app.subscription.purchaseButtonTitle(for: product))
                 .frame(maxWidth: .infinity)
+                .multilineTextAlignment(.center)
         }
         .buttonStyle(.borderedProminent)
     }

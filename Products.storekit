@@ -72,7 +72,12 @@
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "6738291001",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "6738291003",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
           "localizations" : [
             {
               "description" : "Full access to CatXapp with live PGM pricing.",
