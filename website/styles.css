@@ -22,15 +22,19 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .container { width: min(100% - 2rem, var(--max-width)); margin-inline: auto; }
-.site-header { padding: 2.5rem 0 1rem; text-align: center; }
+.site-header { padding: 2.5rem 0 0.5rem; text-align: center; }
 .logo {
   width: 96px; height: 96px; border-radius: 22px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 .hero h1 { margin: 1.25rem 0 0.5rem; font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.02em; }
-.wordmark { margin: 1.25rem 0 0.5rem; font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; }
+.wordmark { margin: 1rem 0 0; font-size: clamp(1.75rem, 5vw, 2.25rem); font-weight: 700; letter-spacing: -0.03em; }
 .wordmark-x { color: var(--accent); }
-.hero .tagline { margin: 0; font-size: 1.05rem; color: var(--text-secondary); max-width: 34rem; margin-inline: auto; }
+.site-intro {
+  margin-top: 2rem;
+  text-align: center;
+}
+.site-intro .tagline { margin: 0; font-size: 1.05rem; color: var(--text-secondary); max-width: 34rem; margin-inline: auto; }
 .platform-note {
   margin: 1rem 0 0;
   font-size: 0.85rem;
@@ -79,7 +83,7 @@ a:hover { text-decoration: underline; }
   color: #86efac;
   text-align: center;
 }
-.app-store-cta { margin-top: 1.25rem; }
+.app-store-cta { margin-top: 1rem; }
 .app-store-button {
   display: inline-block;
   padding: 0.75rem 1.35rem;
@@ -93,12 +97,12 @@ a:hover { text-decoration: underline; }
   transition: opacity 0.15s ease;
 }
 .app-store-button:hover { opacity: 0.9; text-decoration: none; }
-.features { display: grid; gap: 1rem; margin: 2.5rem 0; }
+.features { display: grid; gap: 1rem; margin: 2rem 0 2.5rem; }
 .feature { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.35rem; }
 .feature h3 { margin: 0 0 0.35rem; font-size: 1rem; font-weight: 600; }
 .feature p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
-.waitlist { margin: 2.5rem 0 3rem; padding: 1.75rem 1.5rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 18px; }
-.waitlist h2 { margin: 0 0 0.35rem; font-size: 1.35rem; font-weight: 700; }
+.waitlist { margin: 1rem auto 0; max-width: 26rem; padding: 1.5rem 1.35rem; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 18px; text-align: left; }
+.waitlist h2 { margin: 0 0 0.35rem; font-size: clamp(1.15rem, 4vw, 1.35rem); font-weight: 700; }
 .waitlist .subtitle { margin: 0 0 1.25rem; color: var(--text-secondary); font-size: 0.95rem; }
 .waitlist-form { display: grid; gap: 0.85rem; }
 .form-field { display: grid; gap: 0.35rem; }

@@ -12,6 +12,35 @@
     <header class="site-header hero">
       <img src="assets/logo.png" alt="catXapp" class="logo" width="96" height="96">
       <h1 class="wordmark" aria-label="catXapp"><span>cat</span><span class="wordmark-x">X</span><span>app</span></h1>
+
+      <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading" data-prelaunch>
+        <h2 id="waitlist-heading">Get notified at launch</h2>
+        <p class="subtitle">Join the waitlist and we&rsquo;ll email you when catXapp launches on the App Store for iPhone.</p>
+        <form
+          id="waitlist-form"
+          class="waitlist-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfI0OS_uDrd1K1CpHlz83-EJoM_IIAD23ULeW18U475o3DOcg/formResponse"
+          method="POST"
+          novalidate>
+          <label class="form-field">
+            <span class="form-label">Name</span>
+            <input type="text" name="entry.2005620554" autocomplete="name" placeholder="Optional">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Email</span>
+            <input type="email" name="entry.1045781291" required autocomplete="email" placeholder="you@example.com">
+          </label>
+          <button type="submit" class="form-submit">Notify me at launch</button>
+          <p id="form-status" class="form-status" hidden role="status"></p>
+        </form>
+      </section>
+
+      <div id="app-store-cta" class="app-store-cta" hidden>
+        <a id="app-store-link" class="app-store-button" href="#" rel="noopener">Download on the App Store</a>
+      </div>
+    </header>
+
+    <section class="site-intro">
       <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
       <p class="platform-note">Available on iPhone only (iOS)</p>
       <div class="trial-card" aria-label="Trial offer">
@@ -21,10 +50,7 @@
         <li><span class="trial-card__check" aria-hidden="true">✓</span> The cheapest monthly plan in the market after your trial</li>
         </ul>
       </div>
-      <div id="app-store-cta" class="app-store-cta" hidden>
-        <a id="app-store-link" class="app-store-button" href="#" rel="noopener">Download on the App Store</a>
-      </div>
-    </header>
+    </section>
 
     <section class="features" aria-label="Features">
       <article class="feature">
@@ -39,28 +65,6 @@
         <h3>Cart &amp; margin tools</h3>
         <p>Build loads, save carts, export PDFs, and control your pay price with a private margin setting.</p>
       </article>
-    </section>
-
-    <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading" data-prelaunch>
-      <h2 id="waitlist-heading">Get notified at launch</h2>
-      <p class="subtitle">Join the waitlist and we&rsquo;ll email you when catXapp launches on the App Store for iPhone.</p>
-      <form
-        id="waitlist-form"
-        class="waitlist-form"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSfI0OS_uDrd1K1CpHlz83-EJoM_IIAD23ULeW18U475o3DOcg/formResponse"
-        method="POST"
-        novalidate>
-        <label class="form-field">
-          <span class="form-label">Name</span>
-          <input type="text" name="entry.2005620554" autocomplete="name" placeholder="Optional">
-        </label>
-        <label class="form-field">
-          <span class="form-label">Email</span>
-          <input type="email" name="entry.1045781291" required autocomplete="email" placeholder="you@example.com">
-        </label>
-        <button type="submit" class="form-submit">Notify me at launch</button>
-        <p id="form-status" class="form-status" hidden role="status"></p>
-      </form>
     </section>
   </main>
 
