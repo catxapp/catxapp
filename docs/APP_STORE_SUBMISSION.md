@@ -54,7 +54,7 @@ CatXapp is built for scrap yards and catalytic converter buyers who need fast, r
 • Private margin setting so you control your pay price
 • Save and recall carts for repeat customers
 
-Try CatXapp free for 14 days with a monthly subscription through the App Store. After your trial, your subscription continues unless you cancel.
+Try CatXapp Pro free for 14 days through the App Store. After your trial, Pro continues at $13.99/month unless you cancel. Essential lookup-only plans are also available from $7.99/month.
 
 Prices are estimates based on catalog data and live metal markets. Always verify before buying.
 ```
@@ -68,7 +68,7 @@ catalytic,converter,PGM,scrap,recycling,platinum,palladium,catalyst,prices,yard
 ### Support URL
 
 ```
-https://catxapp.com/
+https://catxapp.com/support.html
 ```
 
 ### Privacy Policy URL
@@ -99,11 +99,11 @@ Complete the questionnaire — expect **4+** (no restricted content).
 **Notes for reviewer:**
 
 ```
-CatXapp offers a 14-day free trial via StoreKit introductory offer on the monthly subscription ($7.99/month after trial). Users start the trial through the App Store.
+CatXapp offers Essential ($7.99/mo, $69.99/yr) for unlimited code lookup with live PGM prices, and Pro ($13.99/mo, $119.99/yr) for cart, margin, saved carts, and PDF export. A 14-day free trial is available on Pro monthly via StoreKit introductory offer. Users start the trial through the App Store.
 
-To test without subscribing in a debug build: Settings → Debug → Access → Subscription Required.
+To test without subscribing in a debug build: Settings → Debug → Access → Subscription Required (and set Tier as needed).
 
-To test purchase/trial: use a Sandbox account on device. Products: quantumficial.catxapp.monthly and quantumficial.catxapp.annual ($69.99/year).
+To test purchase/trial: use a Sandbox account on device. Products: quantumficial.catxapp.monthly, quantumficial.catxapp.annual, quantumficial.catxapp.pro.monthly, quantumficial.catxapp.pro.annual.
 
 No login required. All data stored locally on device.
 ```

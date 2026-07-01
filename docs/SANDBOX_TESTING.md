@@ -15,13 +15,14 @@ Run this checklist on a **physical iPhone** after App Store Connect products and
 | # | Test | Expected result | Pass |
 |---|------|-----------------|------|
 | 1 | Fresh install, open app | Paywall until subscription; search blocked | [ ] |
-| 2 | Paywall → Monthly (start trial) | Sandbox purchase completes; "Free Trial" with days remaining | [ ] |
-| 3 | Settings → Debug → Subscription Required (debug build only) | Paywall on search/cart | [ ] |
-| 4 | Delete app, reinstall, Restore Purchases | Trial/subscription restored without new charge | [ ] |
-| 5 | Paywall → Annual purchase | Annual plan active in Settings | [ ] |
-| 6 | Settings → Manage Subscription | Opens Apple subscription management | [ ] |
-| 7 | Settings → Privacy Policy | Opens `https://catxapp.com/privacy.html` | [ ] |
-| 8 | Settings → Support | Opens `https://catxapp.com/` | [ ] |
+| 2 | Paywall → Pro Monthly (start trial) | Sandbox purchase completes; "Free Trial" with days remaining; cart works | [ ] |
+| 3 | Paywall → Essential Monthly | Search works; cart shows Pro upgrade | [ ] |
+| 4 | Settings → Debug → Subscription Required (debug build only) | Paywall on search; cart blocked | [ ] |
+| 5 | Delete app, reinstall, Restore Purchases | Trial/subscription restored without new charge | [ ] |
+| 6 | Paywall → Essential or Pro Annual | Annual plan active in Settings | [ ] |
+| 7 | Settings → Manage Subscription | Opens Apple subscription management | [ ] |
+| 8 | Settings → Privacy Policy | Opens `https://catxapp.com/privacy.html` | [ ] |
+| 9 | Settings → Support | Opens `https://catxapp.com/support.html` | [ ] |
 
 ## Troubleshooting
 

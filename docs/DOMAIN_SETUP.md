@@ -54,6 +54,6 @@ The repo already includes [`website/CNAME`](../website/CNAME) with `catxapp.com`
 | Field | URL |
 |-------|-----|
 | Privacy Policy URL | `https://catxapp.com/privacy.html` |
-| Support URL | `https://catxapp.com/` |
+| Support URL | `https://catxapp.com/support.html` |
 
 These match [`AppLinks.swift`](../catxapp/Support/AppLinks.swift) in the iOS app.

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact catXapp support — questions about the app, subscriptions, or pricing.">
+  <title>Support — catXapp</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="site-config.js"></script>
+</head>
+<body>
+  <main class="container legal-page">
+    <a href="index.html" class="back-link">&larr; Back to catXapp</a>
+
+    <h1>Support</h1>
+    <p class="support-intro">Questions about catXapp, subscriptions, or pricing? Send us a message and we&rsquo;ll get back to you by email.</p>
+
+    <section class="support-card" id="support-section" aria-labelledby="support-heading">
+      <h2 id="support-heading" class="support-card__title">Contact us</h2>
+
+      <div id="support-unconfigured" class="support-notice" hidden>
+        <p>The contact form is not configured yet. See <code>website/README.md</code> → <strong>Support / Google Form</strong> to connect your Google Form and enable email notifications.</p>
+      </div>
+
+      <form id="support-form" class="site-form" method="POST" novalidate hidden>
+        <label class="form-field">
+          <span class="form-label">Name</span>
+          <input type="text" id="support-name" name="name" required autocomplete="name" placeholder="Your name">
+        </label>
+        <label class="form-field">
+          <span class="form-label">Email</span>
+          <input type="email" id="support-email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </label>
+        <label class="form-field">
+          <span class="form-label">Phone <span class="form-label-optional">(optional)</span></span>
+          <input type="tel" id="support-phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
+        </label>
+        <label class="form-field">
+          <span class="form-label">Message</span>
+          <textarea id="support-message" name="message" required rows="5" placeholder="How can we help?"></textarea>
+        </label>
+        <button type="submit" class="form-submit">Send message</button>
+        <p id="support-status" class="form-status" hidden role="status"></p>
+      </form>
+    </section>
+
+    <p class="support-note">For App Store subscription billing or refunds, you can also manage your plan in <strong>Settings → Apple ID → Subscriptions</strong> on your iPhone.</p>
+  </main>
+
+  <footer class="site-footer container">
+    <p>
+      <a href="index.html">Home</a>
+      &middot;
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+    <p class="copyright">&copy; <span id="year"></span> catXapp</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      var config = window.SITE_CONFIG || {};
+      var formConfig = config.supportForm || {};
+      var form = document.getElementById("support-form");
+      var unconfigured = document.getElementById("support-unconfigured");
+      var status = document.getElementById("support-status");
+      var submitButton = form.querySelector(".form-submit");
+
+      if (!formConfig.action || !formConfig.fields || !formConfig.fields.email) {
+        unconfigured.hidden = false;
+        return;
+      }
+
+      form.hidden = false;
+      form.action = formConfig.action;
+
+      var fields = formConfig.fields;
+      document.getElementById("support-name").name = fields.name;
+      document.getElementById("support-email").name = fields.email;
+      document.getElementById("support-phone").name = fields.phone;
+      document.getElementById("support-message").name = fields.message;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        status.hidden = true;
+        status.classList.remove("form-status--success", "form-status--error");
+
+        var nameInput = document.getElementById("support-name");
+        var emailInput = document.getElementById("support-email");
+        var messageInput = document.getElementById("support-message");
+
+        if (!nameInput.value.trim()) {
+          status.textContent = "Please enter your name.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          nameInput.focus();
+          return;
+        }
+        if (!emailInput.value.trim()) {
+          status.textContent = "Please enter your email address.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          emailInput.focus();
+          return;
+        }
+        if (!emailInput.checkValidity()) {
+          status.textContent = "Please enter a valid email address.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          emailInput.focus();
+          return;
+        }
+        if (!messageInput.value.trim()) {
+          status.textContent = "Please enter a message.";
+          status.classList.add("form-status--error");
+          status.hidden = false;
+          messageInput.focus();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending…";
+
+        fetch(form.action, {
+          method: "POST",
+          mode: "no-cors",
+          body: new FormData(form)
+        })
+          .then(function () {
+            form.querySelectorAll(".form-field, .form-submit").forEach(function (el) {
+              el.hidden = true;
+            });
+            status.textContent = "Message sent! We\u2019ll reply to your email as soon as we can.";
+            status.classList.add("form-status--success");
+            status.hidden = false;
+          })
+          .catch(function () {
+            status.textContent = "Something went wrong. Please try again.";
+            status.classList.add("form-status--error");
+            status.hidden = false;
+            submitButton.disabled = false;
+            submitButton.textContent = "Send message";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

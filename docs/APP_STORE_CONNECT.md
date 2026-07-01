@@ -7,7 +7,7 @@ Use this checklist when your Apple Developer Program enrollment is **Active** an
 | Field | URL |
 |-------|-----|
 | Privacy Policy | `https://catxapp.com/privacy.html` |
-| Support | `https://catxapp.com/` |
+| Support | `https://catxapp.com/support.html` |
 
 See [`DOMAIN_SETUP.md`](DOMAIN_SETUP.md) if the site is not live yet.
 
@@ -43,7 +43,7 @@ Without this, StoreKit products will not load on a real device.
 |-------|-------|
 | Category (primary) | Business or Utilities |
 | Privacy Policy URL | `https://catxapp.com/privacy.html` |
-| Support URL | `https://catxapp.com/` |
+| Support URL | `https://catxapp.com/support.html` |
 
 ## 4. Subscription group
 
@@ -52,12 +52,18 @@ Without this, StoreKit products will not load on a real device.
 
 ## 5. Products (must match the app exactly)
 
-Create two auto-renewable subscriptions in the same group:
+Create **four** auto-renewable subscriptions in the same group:
 
-| Product ID | Price | Duration | Display name (suggested) |
-|------------|-------|----------|--------------------------|
-| `quantumficial.catxapp.monthly` | $7.99 | 1 month | CatXapp Monthly |
-| `quantumficial.catxapp.annual` | $69.99 | 1 year | CatXapp Annual |
+| Product ID | Price | Duration | Display name (suggested) | Tier |
+|------------|-------|----------|--------------------------|------|
+| `quantumficial.catxapp.monthly` | $7.99 | 1 month | CatXapp Essential Monthly | Essential |
+| `quantumficial.catxapp.annual` | $69.99 | 1 year | CatXapp Essential Annual | Essential |
+| `quantumficial.catxapp.pro.monthly` | $13.99 | 1 month | CatXapp Pro Monthly | Pro |
+| `quantumficial.catxapp.pro.annual` | $119.99 | 1 year | CatXapp Pro Annual | Pro |
+
+**Essential** — unlimited code lookup and live PGM-adjusted prices.
+
+**Pro** — everything in Essential plus cart, margin control, saved carts, and PDF export.
 
 For each product:
 
@@ -70,18 +76,18 @@ Product IDs are defined in [`catxapp/Services/SubscriptionManager.swift`](../cat
 
 ## 6. Free trial (StoreKit introductory offer)
 
-CatXapp uses a **14-day free trial** via Apple’s **introductory subscription offer** on the monthly plan. Users start the trial through the App Store; Apple enforces one trial per Apple ID per subscription group (survives reinstall).
+CatXapp uses a **14-day free trial** via Apple’s **introductory subscription offer** on **Pro monthly only**. Users start the trial through the App Store; Apple enforces one trial per Apple ID per subscription group (survives reinstall).
 
-**App Store Connect setup (monthly product):**
-1. Open **CatXapp Monthly** → **Subscription Prices**
+**App Store Connect setup (Pro monthly product):**
+1. Open **CatXapp Pro Monthly** → **Subscription Prices**
 2. Add **Introductory Offer** → **Free** → **2 weeks** (14 days)
 3. Submit with your app for review
 
-Annual plan has no introductory offer (standard subscribe price).
+Essential plans and Pro annual have no introductory offer (standard subscribe price).
 
 **Review notes (paste when submitting):**
 
-> CatXapp uses a 14-day free trial via StoreKit introductory offer on the monthly subscription. Users subscribe through the App Store to begin the trial. Sandbox testers can subscribe with a sandbox Apple ID. To test without subscribing in debug builds: Settings → Debug → Access.
+> CatXapp offers Essential ($7.99/mo) for code lookup and Pro ($13.99/mo) for cart and margin tools. A 14-day free trial is available on Pro monthly via StoreKit introductory offer. Users subscribe through the App Store. Sandbox testers can subscribe with a sandbox Apple ID. To test without subscribing in debug builds: Settings → Debug → Access.
 
 ## 7. Simulator testing (no Connect required)
 
@@ -94,18 +100,18 @@ The project includes [`Products.storekit`](../Products.storekit). The shared Xco
 
 ## 8. Debug access states
 
-In Debug builds: **Settings → Debug → Access**
+In Debug builds: **Settings → Debug → Access** and **Tier**
 
-- **Free Trial** — full access with countdown
-- **Subscribed** — full access, no paywall
-- **Subscription Required** — paywall on search/cart
+- **Free Trial** — lookup or Pro access with countdown (depends on Tier)
+- **Subscribed** — active plan, no paywall for included features
+- **Subscription Required** — paywall on search; cart requires Pro
 
 ## 9. Before TestFlight
 
 - [ ] Paid Applications agreement active
 - [ ] Banking and tax complete
-- [ ] Both subscription products created in Connect
-- [ ] Monthly product has 14-day free introductory offer
+- [ ] All four subscription products created in Connect
+- [ ] Pro monthly has 14-day free introductory offer
 - [ ] Privacy policy live at `https://catxapp.com/privacy.html`
 - [ ] Sandbox purchase tested on device (see [`SANDBOX_TESTING.md`](SANDBOX_TESTING.md))
 
@@ -118,7 +124,7 @@ Capture on **6.7" iPhone** simulator or device (1290 × 2796 px):
 | 1 | Search | Code lookup with results and PGM strip |
 | 2 | Cart | Cart with items and total |
 | 3 | Pricing | Settings → Pricing with margin controls |
-| 4 | Paywall | Subscription options (monthly + annual) |
+| 4 | Paywall | Essential and Pro subscription options |
 
 Optional: Saved carts, PDF export preview.
 

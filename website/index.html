@@ -6,6 +6,31 @@
   <meta name="description" content="catXapp — fast catalytic converter price lookup for iPhone. Live PGM-adjusted pricing, cart tools, and margin control. 14-day free trial through the App Store.">
   <title>catXapp — Catalytic Converter Pricing</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="site-config.js"></script>
+  <script>
+    (function () {
+      var pixelId = (window.SITE_CONFIG || {}).metaPixelId;
+      if (!pixelId) return;
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", pixelId);
+      fbq("track", "PageView");
+    })();
+  </script>
 </head>
 <body>
   <main class="container">
@@ -44,10 +69,11 @@
       <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
       <p class="platform-note">Available on iPhone only (iOS)</p>
       <div class="trial-card" aria-label="Trial offer">
-        <p class="trial-card__headline">Free to try — full access for 14 days</p>
+        <p class="trial-card__headline">Free to try — 14-day Pro trial</p>
         <ul class="trial-card__list">
-        <li><span class="trial-card__check" aria-hidden="true">✓</span> 14-day free trial through the App Store</li>
-        <li><span class="trial-card__check" aria-hidden="true">✓</span> The cheapest monthly plan in the market after your trial</li>
+        <li><span class="trial-card__check" aria-hidden="true">✓</span> Essential from $7.99/mo — lookup &amp; live PGM prices</li>
+        <li><span class="trial-card__check" aria-hidden="true">✓</span> Pro from $13.99/mo — cart, margin, saved loads &amp; PDF</li>
+        <li><span class="trial-card__check" aria-hidden="true">✓</span> 14-day free trial on Pro monthly through the App Store</li>
         </ul>
       </div>
     </section>
@@ -69,14 +95,24 @@
   </main>
 
   <footer class="site-footer container">
-    <p><a href="privacy.html">Privacy Policy</a></p>
+    <p>
+      <a href="support.html">Support</a>
+      &middot;
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
     <p class="disclaimer">Prices shown in catXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
     <p class="copyright">&copy; <span id="year"></span> catXapp</p>
   </footer>
 
-  <script src="site-config.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function trackMetaLead() {
+      var config = window.SITE_CONFIG || {};
+      if (config.metaPixelId && typeof window.fbq === "function") {
+        fbq("track", "Lead");
+      }
+    }
 
     (function () {
       var config = window.SITE_CONFIG || {};
@@ -125,6 +161,7 @@
           body: new FormData(form)
         })
           .then(function () {
+            trackMetaLead();
             form.querySelectorAll(".form-field, .form-submit").forEach(function (el) {
               el.hidden = true;
             });
