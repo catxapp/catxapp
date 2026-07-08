@@ -3,7 +3,7 @@
 window.SITE_CONFIG = {
   launched: false,
   appStoreURL: "https://apps.apple.com/app/id0000000000",
-  metaPixelId: "1412894813980599",
+  metaPixelId: "1320758736438025",
 
   // Support contact form — create a Google Form, then paste formResponse URL and entry.* IDs.
   // Setup: website/README.md → "Support / Google Form"
