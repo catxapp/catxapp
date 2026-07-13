@@ -20,8 +20,8 @@
   <meta name="twitter:image" content="https://catxapp.com/assets/marketing/07-cover.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <script src="site-config.js"></script>
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script src="site-config.js?v=3"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -145,192 +145,181 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1320758736438025&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
 
   <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="topbar-brand" href="/">
-        <img src="assets/logo.png" alt="" width="36" height="36">
-        <span class="wordmark" aria-label="catXapp"><span>cat</span><span class="wordmark-x">X</span><span>app</span></span>
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <img src="assets/logo.png" alt="" width="40" height="40">
+        <span class="wordmark" aria-label="catXapp"><span>cat</span><span class="x">X</span><span>app</span></span>
       </a>
-      <a class="btn btn-primary btn-sm js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download</a>
+      <a class="btn btn-blue btn-small js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download</a>
     </div>
   </header>
 
   <main>
+    <!-- Hero: one composition — brand already in topbar, headline + CTA + one visual -->
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="wrap hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Catalytic converter pricing for iPhone</p>
-          <h1>Know what every cat is worth — <span class="accent-text">instantly.</span></h1>
-          <p class="hero-sub">Live metal prices · 20,000+ codes · instant quotes. Built for scrap yards and converter buyers.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
-            <a class="btn btn-ghost" href="#pricing">See plans</a>
+          <p class="kicker">Catalytic converter pricing for iPhone</p>
+          <h1>What&rsquo;s it worth? <em>One tap.</em></h1>
+          <p class="lede">Enter the converter code — CatXapp shows the live buy price instantly. No more guessing at the scale.</p>
+          <div class="actions">
+            <a class="btn btn-blue js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+            <a class="btn btn-outline" href="#pricing">See plans</a>
           </div>
-          <ul class="trust-strip" aria-label="Highlights">
-            <li>20,000+ codes</li>
-            <li>Live Pt · Pd · Rh</li>
-            <li>14-day Pro trial</li>
-          </ul>
+          <p class="meta">20,000+ codes · Live Pt · Pd · Rh · 14-day Pro trial</p>
         </div>
-        <div class="hero-visual">
+        <figure class="hero-phone">
           <img
             src="assets/marketing/01-worth.png"
-            alt="CatXapp iPhone app showing converter code search with live platinum, palladium, and rhodium market prices"
-            width="1200"
-            height="630"
+            alt="CatXapp on iPhone — converter code search with live metal prices"
+            width="1024"
+            height="1024"
             fetchpriority="high">
-        </div>
+        </figure>
       </div>
     </section>
 
-    <section class="section" id="codes" aria-labelledby="codes-heading">
-      <div class="container split">
-        <div class="split-copy">
-          <h2 id="codes-heading"><span class="accent-text">20,000+</span> converter codes, one search.</h2>
-          <p>Full or partial code, any brand — GM, Toyota, Diesel, Ford, and more. CatXapp matches it in milliseconds when stamps are hard to read.</p>
-          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Get CatXapp</a>
+    <section class="features" id="features" aria-label="Features">
+      <div class="wrap feature">
+        <div class="feature-text">
+          <h2><em>20,000+</em> converter codes, one search.</h2>
+          <p>Full or partial code, any brand — GM, Toyota, Diesel, Ford, and more. Matches in milliseconds when stamps are hard to read.</p>
         </div>
-        <div class="split-media">
-          <img src="assets/marketing/03-codes.png" alt="CatXapp partial code search results for converter stamps" width="1200" height="630" loading="lazy">
+        <figure class="feature-art crop-left">
+          <img src="assets/marketing/03-codes.png" alt="Partial converter code search results in CatXapp" width="1024" height="1024" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="wrap feature feature-flip">
+        <div class="feature-text">
+          <h2>Real-time metal prices, in your pocket.</h2>
+          <p>Platinum, palladium, and rhodium spot prices — refresh on tap so every quote reflects today&rsquo;s market.</p>
         </div>
+        <figure class="feature-art crop-center">
+          <img src="assets/marketing/02-prices.png" alt="Live platinum, palladium, and rhodium prices in CatXapp" width="1024" height="1024" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="wrap feature">
+        <div class="feature-text">
+          <h2>Build the quote. <em>Send the PDF.</em></h2>
+          <p>Add cats to a cart, set integrity and margin, then hand the seller a clean, dated PDF receipt — saved per customer.</p>
+          <p class="pro-note">Pro feature</p>
+        </div>
+        <figure class="feature-art">
+          <img src="assets/marketing/04-quote.png" alt="CatXapp cart and PDF quote receipt" width="1024" height="1024" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="wrap feature feature-flip">
+        <div class="feature-text">
+          <p class="pill">Stop overpaying</p>
+          <h2>Set your margin. <em>Keep your profit.</em></h2>
+          <p>Dial in your profit margin once. Every search and quote updates automatically.</p>
+          <p class="pro-note">Pro feature</p>
+        </div>
+        <figure class="feature-art">
+          <img src="assets/marketing/05-profit.png" alt="Profit margin control in CatXapp Pricing settings" width="1024" height="1024" loading="lazy">
+        </figure>
       </div>
     </section>
 
-    <section class="section section-alt" id="prices" aria-labelledby="prices-heading">
-      <div class="container split split-reverse">
-        <div class="split-copy">
-          <h2 id="prices-heading">Real-time metal prices, in your pocket.</h2>
-          <p>Platinum, palladium, and rhodium spot prices — refresh on tap so every quote reflects today’s market.</p>
-          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
-        </div>
-        <div class="split-media">
-          <img src="assets/marketing/02-prices.png" alt="Live platinum, palladium, and rhodium spot prices in CatXapp" width="1200" height="630" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="quotes" aria-labelledby="quotes-heading">
-      <div class="container split">
-        <div class="split-copy">
-          <h2 id="quotes-heading">Build the quote. <span class="accent-text">Send the PDF.</span></h2>
-          <p>Add cats to a cart, set integrity and margin, then hand the seller a clean, dated PDF receipt — saved per customer. Pro feature.</p>
-          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Start free trial</a>
-        </div>
-        <div class="split-media">
-          <img src="assets/marketing/04-quote.png" alt="CatXapp cart and PDF receipt for a catalytic converter quote" width="1200" height="630" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="margin" aria-labelledby="margin-heading">
-      <div class="container split split-reverse">
-        <div class="split-copy">
-          <p class="badge">Stop overpaying</p>
-          <h2 id="margin-heading">Set your margin. <span class="accent-text">Keep your profit.</span></h2>
-          <p>Dial in your profit margin once. Every search and quote updates automatically — so you never overpay a seller again. Pro feature.</p>
-          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
-        </div>
-        <div class="split-media">
-          <img src="assets/marketing/05-profit.png" alt="CatXapp profit margin slider for converter buy prices" width="1200" height="630" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="pricing" aria-labelledby="pricing-heading">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="pricing-heading">Simple plans for the yard</h2>
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <header class="block-head">
+          <h2 id="pricing-title">Simple plans for the yard</h2>
           <p>Start with a 14-day Pro trial through the App Store. Cancel anytime.</p>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card">
+        </header>
+        <div class="plans">
+          <article class="plan">
             <h3>Essential</h3>
-            <p class="price-card__lead">Code lookup &amp; live PGM prices</p>
-            <p class="price-card__amount">From <strong>$7.99</strong><span>/mo</span></p>
+            <p class="plan-desc">Code lookup &amp; live PGM prices</p>
+            <p class="plan-price"><strong>$7.99</strong> / mo</p>
             <ul>
               <li>Unlimited converter code search</li>
               <li>Live Pt · Pd · Rh adjusted prices</li>
-              <li>$69.99/year option</li>
+              <li>$69.99 / year option</li>
             </ul>
-            <a class="btn btn-ghost js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Subscribe on App Store</a>
+            <a class="btn btn-outline js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Subscribe on App Store</a>
           </article>
-          <article class="price-card price-card--featured">
-            <p class="price-card__tag">Most popular</p>
+          <article class="plan plan-hot">
+            <p class="plan-badge">Most popular</p>
             <h3>Pro</h3>
-            <p class="price-card__lead">Cart, margin, saved loads &amp; PDF</p>
-            <p class="price-card__amount">From <strong>$13.99</strong><span>/mo</span></p>
+            <p class="plan-desc">Cart, margin, saved loads &amp; PDF</p>
+            <p class="plan-price"><strong>$13.99</strong> / mo</p>
             <ul>
               <li>Everything in Essential</li>
               <li>14-day free trial on monthly</li>
               <li>Cart, margin, PDF export</li>
-              <li>$119.99/year option</li>
+              <li>$119.99 / year option</li>
             </ul>
-            <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Start 14-day Pro trial</a>
+            <a class="btn btn-blue js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Start 14-day Pro trial</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="faq" aria-labelledby="faq-heading">
-      <div class="container narrow">
-        <div class="section-head">
-          <h2 id="faq-heading">FAQ</h2>
-        </div>
-        <div class="faq-list">
-          <details>
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap slim">
+        <header class="block-head">
+          <h2 id="faq-title">FAQ</h2>
+        </header>
+        <div class="faq-items">
+          <details open>
             <summary>What is CatXapp?</summary>
-            <p>CatXapp is an iPhone app for scrap yards and catalytic converter buyers. Search converter codes, see live PGM-adjusted buy prices, build carts, set margin, and export PDF receipts.</p>
+            <p>An iPhone app for scrap yards and catalytic converter buyers — code search, live PGM-adjusted buy prices, carts, margin, and PDF receipts.</p>
           </details>
           <details>
-            <summary>How do converter prices update?</summary>
-            <p>CatXapp adjusts catalog prices using live platinum, palladium, and rhodium spot markets. Tap refresh on the market strip to pull the latest spots.</p>
+            <summary>How do prices update?</summary>
+            <p>Catalog prices adjust with live platinum, palladium, and rhodium spots. Tap refresh on the market strip for the latest.</p>
           </details>
           <details>
             <summary>Essential vs Pro?</summary>
-            <p>Essential covers unlimited code lookup and live PGM prices. Pro adds cart tools, profit margin control, saved loads, and PDF export.</p>
+            <p>Essential: unlimited lookup + live PGM prices. Pro: cart, margin, saved loads, and PDF export.</p>
           </details>
           <details>
             <summary>Is there a free trial?</summary>
-            <p>Yes — Pro monthly includes a 14-day free trial through the App Store. Cancel anytime in Settings → Apple Account → Subscriptions.</p>
+            <p>Yes — Pro monthly includes a 14-day free trial via the App Store. Cancel in Settings → Apple Account → Subscriptions.</p>
           </details>
           <details>
-            <summary>Is CatXapp on Android?</summary>
-            <p>No. CatXapp is available on iPhone only (iOS).</p>
+            <summary>Android?</summary>
+            <p>iPhone only (iOS) for now.</p>
           </details>
           <details>
-            <summary>Are prices official ACC prices?</summary>
-            <p>Prices are estimates based on catalog data and live metal markets. Always verify before buying.</p>
+            <summary>Official ACC prices?</summary>
+            <p>Estimates from catalog data and live metal markets. Always verify before buying.</p>
           </details>
         </div>
-        <div class="cta-band">
+
+        <div class="bottom-cta">
           <h2>Ready for the yard?</h2>
-          <p>Download CatXapp on iPhone and start looking up converters with live market prices.</p>
-          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+          <p>Download CatXapp on iPhone and look up converters with live market prices.</p>
+          <a class="btn btn-blue js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
+  <footer class="footer">
+    <div class="wrap">
       <p>
-        <a class="js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">App Store</a>
-        &middot;
+        <a class="js-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">App Store</a>
+        ·
         <a href="support.html">Support</a>
-        &middot;
-        <a href="privacy.html">Privacy Policy</a>
+        ·
+        <a href="privacy.html">Privacy</a>
       </p>
-      <p class="disclaimer">Prices shown in CatXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
-      <p class="copyright">&copy; <span id="year"></span> CatXapp</p>
+      <p class="fine">Prices in CatXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
+      <p class="copy">&copy; <span id="year"></span> CatXapp</p>
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
     (function () {
       var config = window.SITE_CONFIG || {};
       var url = config.appStoreURL || "https://apps.apple.com/us/app/catxapp/id6784522794";
-      document.querySelectorAll(".js-app-store").forEach(function (link) {
+      document.querySelectorAll(".js-store").forEach(function (link) {
         link.href = url;
         link.addEventListener("click", function () {
           if (config.metaPixelId && typeof window.fbq === "function") {
