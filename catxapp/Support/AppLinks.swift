@@ -5,6 +5,5 @@ enum AppLinks {
     static let privacyPolicy = URL(string: "https://catxapp.com/privacy.html")!
     static let support = URL(string: "https://catxapp.com/support.html")!
 
-    /// Replace with the real App Store URL after the app is approved.
-    static let appStore = URL(string: "https://apps.apple.com/app/id0000000000")!
+    static let appStore = URL(string: "https://apps.apple.com/us/app/catxapp/id6784522794")!
 }

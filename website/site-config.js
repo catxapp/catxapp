@@ -1,9 +1,12 @@
-// Flip `launched` to true and set `appStoreURL` when CatXapp is live on the App Store.
-// Set `metaPixelId` from Meta Events Manager for waitlist conversion tracking (see docs/FACEBOOK_ADS.md).
+// Post-launch site config. Leave googleAds* empty until Ads conversion is set up.
 window.SITE_CONFIG = {
-  launched: false,
-  appStoreURL: "https://apps.apple.com/app/id0000000000",
+  launched: true,
+  appStoreURL: "https://apps.apple.com/us/app/catxapp/id6784522794",
   metaPixelId: "1320758736438025",
+
+  // Optional Google Ads conversion (gtag). Fill when ready in Google Ads → Conversions.
+  googleAdsId: "",
+  googleAdsConversionLabel: "",
 
   // Support contact form — create a Google Form, then paste formResponse URL and entry.* IDs.
   // Setup: website/README.md → "Support / Google Form"

@@ -14,22 +14,21 @@ https://apps.apple.com/app/idYOUR_APPLE_ID
 
 ## 2. Update the website
 
-Edit [`website/site-config.js`](../website/site-config.js):
+Post-launch homepage is already live-oriented. Confirm [`website/site-config.js`](../website/site-config.js):
 
 ```javascript
 window.SITE_CONFIG = {
   launched: true,
-  appStoreURL: "https://apps.apple.com/app/idYOUR_APPLE_ID"
+  appStoreURL: "https://apps.apple.com/us/app/catxapp/id6784522794",
+  metaPixelId: "YOUR_PIXEL_ID"
 };
 ```
 
 Commit and push to `main` — GitHub Pages redeploys automatically.
 
-The homepage will hide the waitlist and show **Download on the App Store**.
-
 ## 3. Update the iOS app (next release)
 
-Edit [`catxapp/Support/AppLinks.swift`](../catxapp/Support/AppLinks.swift) — replace the placeholder `appStore` URL with the real link. Ship in v1.0.1 or include before launch if you submit an updated build.
+[`catxapp/Support/AppLinks.swift`](../catxapp/Support/AppLinks.swift) should use the live App Store URL. Ship in the next app update if not already included.
 
 ## 4. Email the waitlist
 
@@ -44,12 +43,13 @@ Hi,
 
 CatXapp is now available for iPhone.
 
-Download: https://apps.apple.com/app/idYOUR_APPLE_ID
+Download: https://apps.apple.com/us/app/catxapp/id6784522794
 
-• Search 1,500+ catalytic converter codes
+• Search 20,000+ catalytic converter codes
 • Live PGM-adjusted pricing
-• Cart, margin tools, and PDF export
-• 14-day free trial, then $7.99/month
+• Essential from $7.99/mo — unlimited code lookup & live PGM prices
+• Pro from $13.99/mo — cart, margin, saved loads & PDF export
+• 14-day free trial on Pro monthly
 
 https://catxapp.com
 
@@ -59,6 +59,7 @@ Thanks for joining the waitlist!
 ## 5. Marketing
 
 - [ ] Post in yard Facebook groups / industry forums
+- [ ] Run pre-launch waitlist ads — see [`FACEBOOK_ADS.md`](FACEBOOK_ADS.md)
 - [ ] Update business cards and flyers with **catxapp.com**
 - [ ] Share App Store link directly for fastest installs
 

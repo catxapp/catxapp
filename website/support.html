@@ -4,17 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="facebook-domain-verification" content="h4gbcyn7iybbsrwvybiato51m6f7g4">
-  <meta name="description" content="Contact catXapp support — questions about the app, subscriptions, or pricing.">
-  <title>Support — catXapp</title>
+  <meta name="description" content="Contact CatXapp support — questions about the app, subscriptions, or pricing.">
+  <title>Support — CatXapp</title>
+  <link rel="canonical" href="https://catxapp.com/support.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="site-config.js"></script>
 </head>
 <body>
   <main class="container legal-page">
-    <a href="index.html" class="back-link">&larr; Back to catXapp</a>
+    <a href="index.html" class="back-link">&larr; Back to CatXapp</a>
 
     <h1>Support</h1>
-    <p class="support-intro">Questions about catXapp, subscriptions, or pricing? Send us a message and we&rsquo;ll get back to you by email.</p>
+    <p class="support-intro">Questions about CatXapp, subscriptions, or pricing? Send us a message and we&rsquo;ll get back to you by email. Prefer to download first? <a class="js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Get CatXapp on the App Store</a>.</p>
 
     <section class="support-card" id="support-section" aria-labelledby="support-heading">
       <h2 id="support-heading" class="support-card__title">Contact us</h2>
@@ -143,6 +146,15 @@
             submitButton.disabled = false;
             submitButton.textContent = "Send message";
           });
+      });
+    })();
+
+    (function () {
+      var config = window.SITE_CONFIG || {};
+      var url = config.appStoreURL;
+      if (!url) return;
+      document.querySelectorAll(".js-app-store").forEach(function (link) {
+        link.href = url;
       });
     })();
   </script>

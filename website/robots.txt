@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://catxapp.com/sitemap.xml

@@ -4,180 +4,345 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="facebook-domain-verification" content="h4gbcyn7iybbsrwvybiato51m6f7g4">
-  <meta name="description" content="catXapp — fast catalytic converter price lookup for iPhone. Live PGM-adjusted pricing, cart tools, and margin control. 14-day free trial through the App Store.">
-  <title>catXapp — Catalytic Converter Pricing</title>
+  <title>CatXapp — Catalytic Converter Price Lookup for iPhone</title>
+  <meta name="description" content="CatXapp is the catalytic converter pricing app for scrap yards and buyers. 20,000+ codes, live Pt·Pd·Rh prices, carts &amp; PDF quotes. 14-day Pro trial on the App Store.">
+  <link rel="canonical" href="https://catxapp.com/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CatXapp">
+  <meta property="og:url" content="https://catxapp.com/">
+  <meta property="og:title" content="CatXapp — Catalytic Converter Price Lookup for iPhone">
+  <meta property="og:description" content="Know what every cat is worth — instantly. 20,000+ converter codes, live PGM prices, carts &amp; PDF receipts. Download on the App Store.">
+  <meta property="og:image" content="https://catxapp.com/assets/marketing/07-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CatXapp — Catalytic Converter Price Lookup">
+  <meta name="twitter:description" content="20,000+ codes, live Pt·Pd·Rh prices, quotes &amp; PDF receipts for scrap yards. Available on iPhone.">
+  <meta name="twitter:image" content="https://catxapp.com/assets/marketing/07-cover.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="site-config.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "CatXapp",
+        "url": "https://catxapp.com/",
+        "logo": "https://catxapp.com/assets/logo.png"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "CatXapp",
+        "operatingSystem": "iOS",
+        "applicationCategory": "BusinessApplication",
+        "description": "Catalytic converter price lookup for scrap yards and buyers. Search converter codes with live platinum, palladium, and rhodium pricing.",
+        "url": "https://catxapp.com/",
+        "downloadUrl": "https://apps.apple.com/us/app/catxapp/id6784522794",
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "7.99",
+          "highPrice": "119.99",
+          "priceCurrency": "USD",
+          "offerCount": "4"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is CatXapp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CatXapp is an iPhone app for scrap yards and catalytic converter buyers. Search converter codes, see live PGM-adjusted buy prices, build carts, set margin, and export PDF receipts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do converter prices update?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CatXapp adjusts catalog prices using live platinum, palladium, and rhodium spot markets. Tap refresh on the market strip to pull the latest spots."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Essential and Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Essential includes unlimited code lookup and live PGM-adjusted prices. Pro adds cart tools, profit margin control, saved loads, and PDF export."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a free trial?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. CatXapp Pro monthly includes a 14-day free trial through the App Store. Cancel anytime in Apple Account settings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is CatXapp available on Android?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CatXapp is available on iPhone only (iOS) through the App Store."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are prices official ACC prices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prices in CatXapp are estimates based on catalog data and live precious metal markets. Always verify before buying."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <script>
     (function () {
-      var pixelId = (window.SITE_CONFIG || {}).metaPixelId;
-      if (!pixelId) return;
-      !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      fbq("init", pixelId);
-      fbq("track", "PageView");
+      var config = window.SITE_CONFIG || {};
+      var pixelId = config.metaPixelId;
+      if (pixelId) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+        fbq("init", pixelId);
+        fbq("track", "PageView");
+      }
+      if (config.googleAdsId) {
+        var gtagScript = document.createElement("script");
+        gtagScript.async = true;
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(config.googleAdsId);
+        document.head.appendChild(gtagScript);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag("js", new Date());
+        gtag("config", config.googleAdsId);
+      }
     })();
   </script>
 </head>
 <body>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1320758736438025&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
-  <main class="container">
-    <header class="site-header hero">
-      <img src="assets/logo.png" alt="catXapp" class="logo" width="96" height="96">
-      <h1 class="wordmark" aria-label="catXapp"><span>cat</span><span class="wordmark-x">X</span><span>app</span></h1>
 
-      <section class="waitlist" id="waitlist" aria-labelledby="waitlist-heading" data-prelaunch>
-        <h2 id="waitlist-heading">Get notified at launch</h2>
-        <p class="subtitle">Join the waitlist and we&rsquo;ll email you when catXapp launches on the App Store for iPhone.</p>
-        <form
-          id="waitlist-form"
-          class="waitlist-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfI0OS_uDrd1K1CpHlz83-EJoM_IIAD23ULeW18U475o3DOcg/formResponse"
-          method="POST"
-          novalidate>
-          <label class="form-field">
-            <span class="form-label">Name</span>
-            <input type="text" name="entry.2005620554" autocomplete="name" placeholder="Optional">
-          </label>
-          <label class="form-field">
-            <span class="form-label">Email</span>
-            <input type="email" name="entry.1045781291" required autocomplete="email" placeholder="you@example.com">
-          </label>
-          <button type="submit" class="form-submit">Notify me at launch</button>
-          <p id="form-status" class="form-status" hidden role="status"></p>
-        </form>
-      </section>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="topbar-brand" href="/">
+        <img src="assets/logo.png" alt="" width="36" height="36">
+        <span class="wordmark" aria-label="catXapp"><span>cat</span><span class="wordmark-x">X</span><span>app</span></span>
+      </a>
+      <a class="btn btn-primary btn-sm js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download</a>
+    </div>
+  </header>
 
-      <div id="app-store-cta" class="app-store-cta" hidden>
-        <a id="app-store-link" class="app-store-button" href="#" rel="noopener">Download on the App Store</a>
-      </div>
-    </header>
-
-    <section class="site-intro">
-      <p class="tagline">Built for everyone in the catalytic converter business. Fast, reliable code search and the cheapest app on the market.</p>
-      <p class="platform-note">Available on iPhone only (iOS)</p>
-      <div class="trial-card" aria-label="Trial offer">
-        <p class="trial-card__headline">Free to try — 14-day Pro trial</p>
-        <ul class="trial-card__list">
-        <li><span class="trial-card__check" aria-hidden="true">✓</span> Essential from $7.99/mo — lookup &amp; live PGM prices</li>
-        <li><span class="trial-card__check" aria-hidden="true">✓</span> Pro from $13.99/mo — cart, margin, saved loads &amp; PDF</li>
-        <li><span class="trial-card__check" aria-hidden="true">✓</span> 14-day free trial on Pro monthly through the App Store</li>
-        </ul>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Catalytic converter pricing for iPhone</p>
+          <h1>Know what every cat is worth — <span class="accent-text">instantly.</span></h1>
+          <p class="hero-sub">Live metal prices · 20,000+ codes · instant quotes. Built for scrap yards and converter buyers.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+            <a class="btn btn-ghost" href="#pricing">See plans</a>
+          </div>
+          <ul class="trust-strip" aria-label="Highlights">
+            <li>20,000+ codes</li>
+            <li>Live Pt · Pd · Rh</li>
+            <li>14-day Pro trial</li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="assets/marketing/01-worth.png"
+            alt="CatXapp iPhone app showing converter code search with live platinum, palladium, and rhodium market prices"
+            width="1200"
+            height="630"
+            fetchpriority="high">
+        </div>
       </div>
     </section>
 
-    <section class="features" aria-label="Features">
-      <article class="feature">
-        <h3>Instant code lookup</h3>
-        <p>Search thousands of converter codes with smart suggestions — partial matches work when stamps are rusty.</p>
-      </article>
-      <article class="feature">
-        <h3>Live PGM prices</h3>
-        <p>Prices adjust with platinum, palladium, and rhodium spot markets so you stay current day to day.</p>
-      </article>
-      <article class="feature">
-        <h3>Cart &amp; margin tools</h3>
-        <p>Build loads, save carts, export PDFs, and control your pay price with a private margin setting.</p>
-      </article>
+    <section class="section" id="codes" aria-labelledby="codes-heading">
+      <div class="container split">
+        <div class="split-copy">
+          <h2 id="codes-heading"><span class="accent-text">20,000+</span> converter codes, one search.</h2>
+          <p>Full or partial code, any brand — GM, Toyota, Diesel, Ford, and more. CatXapp matches it in milliseconds when stamps are hard to read.</p>
+          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Get CatXapp</a>
+        </div>
+        <div class="split-media">
+          <img src="assets/marketing/03-codes.png" alt="CatXapp partial code search results for converter stamps" width="1200" height="630" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="prices" aria-labelledby="prices-heading">
+      <div class="container split split-reverse">
+        <div class="split-copy">
+          <h2 id="prices-heading">Real-time metal prices, in your pocket.</h2>
+          <p>Platinum, palladium, and rhodium spot prices — refresh on tap so every quote reflects today’s market.</p>
+          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+        </div>
+        <div class="split-media">
+          <img src="assets/marketing/02-prices.png" alt="Live platinum, palladium, and rhodium spot prices in CatXapp" width="1200" height="630" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quotes" aria-labelledby="quotes-heading">
+      <div class="container split">
+        <div class="split-copy">
+          <h2 id="quotes-heading">Build the quote. <span class="accent-text">Send the PDF.</span></h2>
+          <p>Add cats to a cart, set integrity and margin, then hand the seller a clean, dated PDF receipt — saved per customer. Pro feature.</p>
+          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Start free trial</a>
+        </div>
+        <div class="split-media">
+          <img src="assets/marketing/04-quote.png" alt="CatXapp cart and PDF receipt for a catalytic converter quote" width="1200" height="630" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="margin" aria-labelledby="margin-heading">
+      <div class="container split split-reverse">
+        <div class="split-copy">
+          <p class="badge">Stop overpaying</p>
+          <h2 id="margin-heading">Set your margin. <span class="accent-text">Keep your profit.</span></h2>
+          <p>Dial in your profit margin once. Every search and quote updates automatically — so you never overpay a seller again. Pro feature.</p>
+          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+        </div>
+        <div class="split-media">
+          <img src="assets/marketing/05-profit.png" alt="CatXapp profit margin slider for converter buy prices" width="1200" height="630" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="pricing-heading">Simple plans for the yard</h2>
+          <p>Start with a 14-day Pro trial through the App Store. Cancel anytime.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Essential</h3>
+            <p class="price-card__lead">Code lookup &amp; live PGM prices</p>
+            <p class="price-card__amount">From <strong>$7.99</strong><span>/mo</span></p>
+            <ul>
+              <li>Unlimited converter code search</li>
+              <li>Live Pt · Pd · Rh adjusted prices</li>
+              <li>$69.99/year option</li>
+            </ul>
+            <a class="btn btn-ghost js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Subscribe on App Store</a>
+          </article>
+          <article class="price-card price-card--featured">
+            <p class="price-card__tag">Most popular</p>
+            <h3>Pro</h3>
+            <p class="price-card__lead">Cart, margin, saved loads &amp; PDF</p>
+            <p class="price-card__amount">From <strong>$13.99</strong><span>/mo</span></p>
+            <ul>
+              <li>Everything in Essential</li>
+              <li>14-day free trial on monthly</li>
+              <li>Cart, margin, PDF export</li>
+              <li>$119.99/year option</li>
+            </ul>
+            <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Start 14-day Pro trial</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+      <div class="container narrow">
+        <div class="section-head">
+          <h2 id="faq-heading">FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>What is CatXapp?</summary>
+            <p>CatXapp is an iPhone app for scrap yards and catalytic converter buyers. Search converter codes, see live PGM-adjusted buy prices, build carts, set margin, and export PDF receipts.</p>
+          </details>
+          <details>
+            <summary>How do converter prices update?</summary>
+            <p>CatXapp adjusts catalog prices using live platinum, palladium, and rhodium spot markets. Tap refresh on the market strip to pull the latest spots.</p>
+          </details>
+          <details>
+            <summary>Essential vs Pro?</summary>
+            <p>Essential covers unlimited code lookup and live PGM prices. Pro adds cart tools, profit margin control, saved loads, and PDF export.</p>
+          </details>
+          <details>
+            <summary>Is there a free trial?</summary>
+            <p>Yes — Pro monthly includes a 14-day free trial through the App Store. Cancel anytime in Settings → Apple Account → Subscriptions.</p>
+          </details>
+          <details>
+            <summary>Is CatXapp on Android?</summary>
+            <p>No. CatXapp is available on iPhone only (iOS).</p>
+          </details>
+          <details>
+            <summary>Are prices official ACC prices?</summary>
+            <p>Prices are estimates based on catalog data and live metal markets. Always verify before buying.</p>
+          </details>
+        </div>
+        <div class="cta-band">
+          <h2>Ready for the yard?</h2>
+          <p>Download CatXapp on iPhone and start looking up converters with live market prices.</p>
+          <a class="btn btn-primary js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">Download on the App Store</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer container">
-    <p>
-      <a href="support.html">Support</a>
-      &middot;
-      <a href="privacy.html">Privacy Policy</a>
-    </p>
-    <p class="disclaimer">Prices shown in catXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
-    <p class="copyright">&copy; <span id="year"></span> catXapp</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        <a class="js-app-store" href="https://apps.apple.com/us/app/catxapp/id6784522794" rel="noopener">App Store</a>
+        &middot;
+        <a href="support.html">Support</a>
+        &middot;
+        <a href="privacy.html">Privacy Policy</a>
+      </p>
+      <p class="disclaimer">Prices shown in CatXapp are estimates based on catalog data and live precious metal markets. Always verify before buying.</p>
+      <p class="copyright">&copy; <span id="year"></span> CatXapp</p>
+    </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function trackMetaLead() {
-      var config = window.SITE_CONFIG || {};
-      if (config.metaPixelId && typeof window.fbq === "function") {
-        fbq("track", "Lead");
-      }
-    }
-
     (function () {
       var config = window.SITE_CONFIG || {};
-      if (!config.launched) return;
-
-      var waitlist = document.getElementById("waitlist");
-      var cta = document.getElementById("app-store-cta");
-      var link = document.getElementById("app-store-link");
-      if (waitlist) waitlist.hidden = true;
-      if (cta) cta.hidden = false;
-      if (link && config.appStoreURL) link.href = config.appStoreURL;
-    })();
-
-    (function () {
-      var form = document.getElementById("waitlist-form");
-      var status = document.getElementById("form-status");
-      var submitButton = form.querySelector(".form-submit");
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        status.hidden = true;
-        status.classList.remove("form-status--success", "form-status--error");
-
-        var emailInput = form.querySelector('input[type="email"]');
-        if (!emailInput.value.trim()) {
-          status.textContent = "Please enter your email address.";
-          status.classList.add("form-status--error");
-          status.hidden = false;
-          emailInput.focus();
-          return;
-        }
-        if (!emailInput.checkValidity()) {
-          status.textContent = "Please enter a valid email address.";
-          status.classList.add("form-status--error");
-          status.hidden = false;
-          emailInput.focus();
-          return;
-        }
-
-        submitButton.disabled = true;
-        submitButton.textContent = "Submitting…";
-
-        fetch(form.action, {
-          method: "POST",
-          mode: "no-cors",
-          body: new FormData(form)
-        })
-          .then(function () {
-            trackMetaLead();
-            form.querySelectorAll(".form-field, .form-submit").forEach(function (el) {
-              el.hidden = true;
+      var url = config.appStoreURL || "https://apps.apple.com/us/app/catxapp/id6784522794";
+      document.querySelectorAll(".js-app-store").forEach(function (link) {
+        link.href = url;
+        link.addEventListener("click", function () {
+          if (config.metaPixelId && typeof window.fbq === "function") {
+            fbq("trackCustom", "AppStoreClick");
+            fbq("track", "Contact");
+          }
+          if (config.googleAdsId && config.googleAdsConversionLabel && typeof window.gtag === "function") {
+            gtag("event", "conversion", {
+              send_to: config.googleAdsId + "/" + config.googleAdsConversionLabel
             });
-            status.textContent = "You\u2019re on the list! We\u2019ll email you when catXapp launches on the App Store.";
-            status.classList.add("form-status--success");
-            status.hidden = false;
-          })
-          .catch(function () {
-            status.textContent = "Something went wrong. Please try again.";
-            status.classList.add("form-status--error");
-            status.hidden = false;
-            submitButton.disabled = false;
-            submitButton.textContent = "Notify me at launch";
-          });
+          }
+        });
       });
     })();
   </script>
