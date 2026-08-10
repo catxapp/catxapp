@@ -353,6 +353,70 @@ a.btn-small,
   margin-inline: auto;
 }
 
+/* Guide article */
+.guide-hero {
+  padding: 2.5rem 0 1.25rem;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(59, 130, 246, 0.18), transparent 60%);
+}
+.guide-hero h1 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.85rem, 4vw, 2.45rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.guide-hero .lede {
+  margin: 0 0 1.35rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 36rem;
+}
+.guide-hero .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.guide-body {
+  padding: 0.5rem 0 3rem;
+}
+.guide-body section {
+  margin: 0 0 2.25rem;
+}
+.guide-body h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.guide-body p {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.guide-body ul,
+.guide-body ol {
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.guide-body li { margin-bottom: 0.4rem; }
+.guide-body li strong { color: var(--text); font-weight: 600; }
+.guide-checklist {
+  padding: 1.35rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+.guide-checklist h2 { margin-top: 0; }
+.guide-checklist .checklist {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.guide-body .faq { padding: 0; }
+.guide-body .bottom-cta { margin-top: 0.5rem; }
+
 /* Support / legal */
 .legal-page { padding: 2rem 0 3rem; width: min(100% - 2rem, 720px); margin-inline: auto; }
 .legal-page h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
