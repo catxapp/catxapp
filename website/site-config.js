@@ -4,6 +4,9 @@ window.SITE_CONFIG = {
   appStoreURL: "https://apps.apple.com/us/app/catxapp/id6784522794",
   metaPixelId: "1320758736438025",
 
+  // Google Analytics 4 (gtag).
+  googleAnalyticsId: "G-38ZSBYS0C1",
+
   // Optional Google Ads conversion (gtag). Fill when ready in Google Ads → Conversions.
   googleAdsId: "",
   googleAdsConversionLabel: "",

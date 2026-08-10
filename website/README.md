@@ -41,6 +41,7 @@ Open http://localhost:8080
 launched: true,
 appStoreURL: "https://apps.apple.com/us/app/catxapp/id6784522794",
 metaPixelId: "YOUR_PIXEL_ID",
+googleAnalyticsId: "G-XXXXXXXX", // GA4 measurement ID
 googleAdsId: "",              // e.g. AW-XXXXXXXXX
 googleAdsConversionLabel: ""  // from Google Ads conversion action
 ```

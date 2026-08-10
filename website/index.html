@@ -20,8 +20,9 @@
   <meta name="twitter:image" content="https://catxapp.com/assets/screenshots/01-search-result.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=6">
-  <script src="site-config.js?v=6"></script>
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script src="site-config.js?v=7"></script>
+  <script src="analytics.js?v=7"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,42 +96,6 @@
       }
     ]
   }
-  </script>
-  <script>
-    (function () {
-      var config = window.SITE_CONFIG || {};
-      var pixelId = config.metaPixelId;
-      if (pixelId) {
-        !function (f, b, e, v, n, t, s) {
-          if (f.fbq) return;
-          n = f.fbq = function () {
-            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-          };
-          if (!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = "2.0";
-          n.queue = [];
-          t = b.createElement(e);
-          t.async = !0;
-          t.src = v;
-          s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s);
-        }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-        fbq("init", pixelId);
-        fbq("track", "PageView");
-      }
-      if (config.googleAdsId) {
-        var gtagScript = document.createElement("script");
-        gtagScript.async = true;
-        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(config.googleAdsId);
-        document.head.appendChild(gtagScript);
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { dataLayer.push(arguments); };
-        gtag("js", new Date());
-        gtag("config", config.googleAdsId);
-      }
-    })();
   </script>
 </head>
 <body>
@@ -329,6 +294,12 @@
           if (config.metaPixelId && typeof window.fbq === "function") {
             fbq("trackCustom", "AppStoreClick");
             fbq("track", "Contact");
+          }
+          if (config.googleAnalyticsId && typeof window.gtag === "function") {
+            gtag("event", "store_click", {
+              event_category: "engagement",
+              event_label: "app_store"
+            });
           }
           if (config.googleAdsId && config.googleAdsConversionLabel && typeof window.gtag === "function") {
             gtag("event", "conversion", {

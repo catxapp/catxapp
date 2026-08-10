@@ -9,8 +9,9 @@
   <link rel="canonical" href="https://catxapp.com/support.html">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?v=5">
-  <script src="site-config.js?v=5"></script>
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script src="site-config.js?v=7"></script>
+  <script src="analytics.js?v=7"></script>
 </head>
 <body>
   <main class="container legal-page">
@@ -155,6 +156,18 @@
       if (!url) return;
       document.querySelectorAll(".js-app-store").forEach(function (link) {
         link.href = url;
+        link.addEventListener("click", function () {
+          if (config.metaPixelId && typeof window.fbq === "function") {
+            fbq("trackCustom", "AppStoreClick");
+            fbq("track", "Contact");
+          }
+          if (config.googleAnalyticsId && typeof window.gtag === "function") {
+            gtag("event", "store_click", {
+              event_category: "engagement",
+              event_label: "app_store"
+            });
+          }
+        });
       });
     })();
   </script>
