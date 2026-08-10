@@ -1,4 +1,5 @@
-// Loads Meta Pixel + Google Analytics / Ads from SITE_CONFIG.
+// Loads Meta Pixel + optional Google Ads from SITE_CONFIG.
+// GA4 (G-38ZSBYS0C1) is loaded via the hardcoded gtag snippet in each page <head>.
 (function () {
   var config = window.SITE_CONFIG || {};
   var pixelId = config.metaPixelId;
@@ -23,18 +24,18 @@
     fbq("track", "PageView");
   }
 
-  var gaId = config.googleAnalyticsId;
+  // Only configure Google Ads here if set — avoid double-loading GA4.
   var adsId = config.googleAdsId;
-  var primaryGtagId = gaId || adsId;
-  if (primaryGtagId && typeof window.gtag !== "function") {
+  if (adsId && typeof window.gtag === "function") {
+    gtag("config", adsId);
+  } else if (adsId) {
     var gtagScript = document.createElement("script");
     gtagScript.async = true;
-    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(primaryGtagId);
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(adsId);
     document.head.appendChild(gtagScript);
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
+    window.gtag = window.gtag || function () { dataLayer.push(arguments); };
     gtag("js", new Date());
-    if (gaId) gtag("config", gaId);
-    if (adsId) gtag("config", adsId);
+    gtag("config", adsId);
   }
 })();
