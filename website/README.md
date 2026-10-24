@@ -8,6 +8,7 @@ Post-launch landing site for **CatXapp** — App Store download CTAs, product se
 |------|-----|
 | Homepage | `https://catxapp.com/` |
 | Pricing guide | `https://catxapp.com/how-to-price-catalytic-converter.html` |
+| Find the code | `https://catxapp.com/where-to-find-catalytic-converter-code.html` |
 | Support | `https://catxapp.com/support.html` |
 | Privacy policy | `https://catxapp.com/privacy.html` |
 
@@ -17,6 +18,7 @@ Setup: see [`docs/DOMAIN_SETUP.md`](../docs/DOMAIN_SETUP.md). Deploy: GitHub Act
 |------|---------|
 | `index.html` | SEO landing page + App Store CTAs |
 | `how-to-price-catalytic-converter.html` | Yard buyer SEO guide |
+| `where-to-find-catalytic-converter-code.html` | Find / read rusty converter codes |
 | `support.html` | Contact / support form |
 | `privacy.html` | Privacy policy |
 | `site-config.js` | App Store URL, Meta Pixel, optional Google Ads IDs |

@@ -441,6 +441,22 @@ a.btn-small,
 }
 .guide-body .faq { padding: 0; }
 .guide-body .bottom-cta { margin-top: 0.5rem; }
+.guide-related {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.guide-related a { font-weight: 600; }
+.guide-crumbs {
+  margin: 0 0 1.25rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.guide-crumbs a { color: var(--muted); }
+.guide-crumbs a:hover { color: var(--text); }
+@media (max-width: 520px) {
+  .topbar-actions .topbar-link { font-size: 0.8rem; }
+}
 
 /* Support / legal */
 .legal-page { padding: 2rem 0 3rem; width: min(100% - 2rem, 720px); margin-inline: auto; }
