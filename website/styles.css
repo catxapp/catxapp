@@ -92,11 +92,11 @@ a.btn-small,
   min-height: 3.5rem;
   gap: 1rem;
 }
-.topbar-actions {
+.topbar-links {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
   gap: 0.85rem;
+  margin-left: auto;
 }
 .topbar-link {
   color: var(--muted);
@@ -458,7 +458,19 @@ a.btn-small,
 .guide-crumbs a { color: var(--muted); }
 .guide-crumbs a:hover { color: var(--text); }
 @media (max-width: 700px) {
-  .topbar-actions .topbar-link { display: none; }
+  .topbar-inner {
+    flex-wrap: wrap;
+    row-gap: 0.1rem;
+    padding-bottom: 0.55rem;
+  }
+  .topbar-links {
+    order: 1;
+    flex-basis: 100%;
+    margin-left: 0;
+    padding-top: 0.15rem;
+  }
+  .topbar-inner > .btn { margin-left: auto; }
+  .topbar-link { font-size: 0.85rem; }
 }
 
 /* Support / legal */
