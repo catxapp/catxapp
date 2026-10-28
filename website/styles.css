@@ -459,17 +459,34 @@ a.btn-small,
 .guide-crumbs a:hover { color: var(--text); }
 @media (max-width: 700px) {
   .topbar-inner {
-    flex-wrap: wrap;
-    row-gap: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand download"
+      "links links";
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.85rem;
+    min-height: 0;
+    padding-top: 0.55rem;
     padding-bottom: 0.7rem;
   }
-  .topbar-links {
-    order: 1;
-    flex-basis: 100%;
-    margin-left: 0;
-    margin-top: 1.5rem;
+  .brand {
+    grid-area: brand;
+    align-self: center;
   }
-  .topbar-inner > .btn { margin-left: auto; }
+  .topbar-links {
+    grid-area: links;
+    flex-basis: auto;
+    margin: 0;
+    justify-self: start;
+  }
+  .topbar-inner > .btn {
+    grid-area: download;
+    margin: 0;
+    justify-self: end;
+    align-self: center;
+  }
   .topbar-link { font-size: 0.85rem; }
 }
 
