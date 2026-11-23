@@ -9,6 +9,7 @@ Post-launch landing site for **CatXapp** — App Store download CTAs, product se
 | Homepage | `https://catxapp.com/` |
 | Pricing guide | `https://catxapp.com/how-to-price-catalytic-converter.html` |
 | Find the code | `https://catxapp.com/where-to-find-catalytic-converter-code.html` |
+| Metals / prices | `https://catxapp.com/why-catalytic-converter-prices-move.html` |
 | Support | `https://catxapp.com/support.html` |
 | Privacy policy | `https://catxapp.com/privacy.html` |
 
